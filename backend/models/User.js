@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const LoginSchema = new Schema({
+const UserSchema = new Schema({
   userID: {
     type: String
     
@@ -17,6 +17,6 @@ const LoginSchema = new Schema({
   },
 });
 
-const Login = mongoose.model("Login", LoginSchema);
+const User = mongoose.model("User", UserSchema);
 
-module.exports = Login;
+module.exports = User;
