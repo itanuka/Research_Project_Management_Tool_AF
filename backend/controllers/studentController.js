@@ -5,15 +5,14 @@ const catchAsyncErrors = require('../middlewares/catchAsyncErrors')
 // REGISTER A STUDENT
 exports.registerStudent = catchAsyncErrors((req, res) => {
 
-    const { name, idNumber, degree, specialization, password, role } = req.body;
+    const { name, idNumber, degree, specialization, password } = req.body;
 
     const newStudent = new Student({
         name,
         idNumber,
         degree,
         specialization,
-        password,
-        role,
+        password
     });
 
     newStudent.save()
