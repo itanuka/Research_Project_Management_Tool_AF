@@ -10,7 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-const LoginRouter = require("./routes/logins");
+const UserRouter = require("./routes/user");
 const StudentRouter = require("./routes/student");
 const StaffRouter = require("./routes/staff");
 
@@ -19,7 +19,7 @@ const StaffRouter = require("./routes/staff");
 
 app.use("/api/v1/students", StudentRouter);
 app.use("/api/v1/staff", StaffRouter);
-app.use("/api/v1/logins", LoginRouter);
+app.use("/api/v1/users", UserRouter);
 
 
 

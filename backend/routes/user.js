@@ -7,7 +7,7 @@ const {
   deleteLoginMember,
   deleteLoginMember2,
   login
-} = require('../controllers/loginController');
+} = require('../controllers/userController');
 
 
 router.route("/add").post(createLogin);

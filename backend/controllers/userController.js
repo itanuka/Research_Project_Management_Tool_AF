@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
-const Login = require("../models/Login");
+const Login = require("../models/User");
 
 const dotenv = require('dotenv');
 dotenv.config({ path: 'config/config.env' });
