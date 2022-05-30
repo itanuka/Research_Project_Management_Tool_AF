@@ -145,3 +145,51 @@ exports.deleteGroup = async (req, res) => {
         console.error(error)
     }
 };
+
+/** @desc   update existing group so that supervisor, co-supervisor, and panel
+ *          members can be added to the existing group
+ * */
+// @route UPDATE /api/v1/requests/updateWithStaff/:groupName
+// @access private
+
+const updateWithStaff = async (req, res) => {
+    const groupName = req.params.groupName
+    
+    const supervisor = req.body.supervisor
+    const co_supervisor = req.body.co_supervisor
+    const panel_member = req.body.panel_member
+
+    let updateInfo
+
+    if(supervisor) {
+        updateInfo = await Group.updateOne({groupName: groupName},
+            {
+                $set: {
+                    supervisor: supervisor
+                }
+            }
+        )
+    } else if(co_supervisor) {
+        updateInfo = await Group.updateOne({groupName: groupName},
+            {
+                $set: {
+                    co_supervisor: co_supervisor
+                }
+            }
+        )
+    } else if(panel_member) {
+        updateInfo = await Group.updateOne({groupName: groupName},
+            {
+                $set: {
+                    panel_member: panel_member
+                }
+            }
+        )
+    } else {
+        updateInfo = {
+            message: "No staff members were added to the group"
+        }
+    }
+
+    res.status(201).json(updateInfo)
+}
