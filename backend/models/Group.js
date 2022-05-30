@@ -27,6 +27,18 @@ const GroupSchema = new Schema({
     /** 
      *  Each group should consist of supervisor, co-supervisor, and panel member, in addition to its group members
     */
+    supervisor: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Staff"
+    },
+    co_supervisor: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Staff"
+    },
+    panel_member: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Staff"
+    }
 });
 
 const Group = mongoose.model("Group", GroupSchema);
