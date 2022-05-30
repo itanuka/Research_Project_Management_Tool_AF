@@ -149,7 +149,7 @@ exports.deleteGroup = async (req, res) => {
 /** @desc   update existing group so that supervisor, co-supervisor, and panel
  *          members can be added to the existing group
  * */
-// @route UPDATE /api/v1/requests/updateWithStaff/:groupName
+// @route UPDATE /api/v1/groups/updateWithStaff/:groupName
 // @access private
 
 const updateWithStaff = async (req, res) => {
@@ -193,3 +193,5 @@ const updateWithStaff = async (req, res) => {
 
     res.status(201).json(updateInfo)
 }
+
+module.exports = { updateWithStaff }
