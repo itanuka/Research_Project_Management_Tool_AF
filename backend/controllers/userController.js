@@ -91,8 +91,7 @@ exports.login = catchAsyncErrors(async (req, res) => {
         if (!result) {
           return res.status(500).json(err);
         } else {
-          console.log(result);
-
+         
           const isPasswordValid = await bcrypt.compare(
             req.body.password,
             result.password
