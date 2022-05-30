@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
-const Login = require("../models/Login");
+const User = require("../models/User");
 
 const dotenv = require('dotenv');
 dotenv.config({ path: 'config/config.env' });
@@ -10,19 +10,19 @@ dotenv.config({ path: 'config/config.env' });
 
 
 // CREATE MEMBER LOGIN
-exports.createLogin = catchAsyncErrors(async (req, res) => {
+exports.createUser = catchAsyncErrors(async (req, res) => {
   try {
     const userID = req.body.userID;
     const password = await bcrypt.hash(req.body.password, 10);
     const role = req.body.role;
 
-    const newLogin = new Login({
+    const newUser = new User({
       userID,
       password,
       role,
     });
 
-    newLogin.save()
+    newUser.save()
     res.status(200)
   } catch (error) {
     console.log(error);
@@ -32,9 +32,9 @@ exports.createLogin = catchAsyncErrors(async (req, res) => {
 
 
 // GET ALL LOGINS
-exports.allLogins = catchAsyncErrors((req, res) => {
+exports.allUsers = catchAsyncErrors((req, res) => {
 
-  Login.find({}, (err, result) => {
+  User.find({}, (err, result) => {
     if (err)
       res.json(err)
     else
@@ -49,7 +49,7 @@ exports.deleteLoginMember = catchAsyncErrors(async (req, res) => {
   let id = req.params.id;
 
   try {
-    await Login.deleteOne({ _id: id }, (err, result) => {
+    await User.deleteOne({ _id: id }, (err, result) => {
       if (err)
         res.status(500).json(err)
       else
@@ -68,7 +68,7 @@ exports.deleteLoginMember2 = catchAsyncErrors(async (req, res) => {
 
   let userID = req.params.userID;
 
-  Login.deleteOne({ _id: userID }, (err, result) => {
+  User.deleteOne({ _id: userID }, (err, result) => {
     if (err) {
       res.status(500).json(err)
     } else {
@@ -84,7 +84,7 @@ exports.deleteLoginMember2 = catchAsyncErrors(async (req, res) => {
 // LOGIN 
 exports.login = catchAsyncErrors(async (req, res) => {
 
-  Login.findOne({ userID: req.body.userID },
+  User.findOne({ userID: req.body.userID },
     async function (err, result) {
 
       try {
