@@ -16,10 +16,9 @@ const StaffRouter = require("./routes/staff");
 const GroupRouter = require("./routes/group");
 
 
-
 app.use("/api/v1/students", StudentRouter);
 app.use("/api/v1/staff", StaffRouter);
-app.use("/api/v1/logins", LoginRouter);
+// app.use("/api/v1/logins", LoginRouter);
 app.use("/api/v1/groups", GroupRouter);
 app.use("/api/v1/users", UserRouter);
 

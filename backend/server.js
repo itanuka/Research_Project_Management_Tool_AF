@@ -5,10 +5,9 @@ dotenv.config({ path: 'config/config.env' });
 const app = require('./app');
 
 
-mongoose.connect(process.env.DB_LOCAL_URL, {
+mongoose.connect(process.env.DB_LOCAL_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-
 });
 
 // DATABASE CONNECTION
