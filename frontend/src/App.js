@@ -11,10 +11,15 @@ import AddAdmin from "./components/admin/AddAdmin";
 import RegisterStudent from "./components/user/student/RegisterStudent";
 import ViewStudents from "./components/admin/ViewStudents";
 import StudentHome from "./components/user/student/StudentHome";
+import ViewStudentProfile from "./components/user/student/ViewStudentProfile";
+import UpdateStudentProfile from "./components/user/student/UpdateStudentProfile";
 
 import ViewStaff from "./components/admin/ViewStaff";
 import RegisterStaff from "./components/user/staff/RegisterStaff";
 import SupervisorHome from "./components/user/staff/SupervisorHome";
+import ViewSupervisorProfile from "./components/user/staff/ViewSupervisorProfile";
+import UpdateSupervisorProfile from "./components/user/staff/UpdateSupervisorProfile";
+
 import PanelMemberHome from "./components/user/staff/PanelMemberHome";
 
 import ViewGroups from './components/admin/ViewGroups'
@@ -44,9 +49,14 @@ export function App() {
 
           <Route path="/registerStudent" element={<RegisterStudent />}></Route>
           <Route path="/student" element={<StudentHome />}></Route>
+          <Route path="/students/view/:id" element={<ViewStudentProfile />}></Route>
+          <Route path="/students/update/:id" element={<UpdateStudentProfile />}></Route>
 
           <Route path="/registerStaff" element={<RegisterStaff />}></Route>
           <Route path="/supervisor" element={<SupervisorHome />}></Route>
+          <Route path="/staff/view/:id" element={<ViewSupervisorProfile />}></Route>
+          <Route path="/staff/update/:id" element={<UpdateSupervisorProfile />}></Route>
+          
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
 
           <Route path="/admin/groups" element={<ViewGroups />}></Route>

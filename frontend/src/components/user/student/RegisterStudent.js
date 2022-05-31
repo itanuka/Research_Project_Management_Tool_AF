@@ -15,6 +15,7 @@ function RegisterStudent() {
   const [password, setPassword] = useState("");
   const [showText, setShowText] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
 
@@ -32,6 +33,7 @@ function RegisterStudent() {
         degree,
         specialization,
         password,
+        email
       };
       const userID = idNumber;
       const newLogin = {
@@ -75,6 +77,7 @@ function RegisterStudent() {
       setDegree("");
       setSpecialization("");
       setPassword("");
+      setEmail("");
     } else {
       Swal.fire({
         title: "Passowrds Not Matched!!",
@@ -170,6 +173,19 @@ function RegisterStudent() {
                         required
                         onChange={(e) => {
                           setConfirmPassword(e.target.value);
+                        }} />
+                    </div>
+                  </div>
+
+                  <div class = "form-row"> 
+                  <div class="col">
+                      <label for="inputPassword">Email</label>
+                      <input type="email"
+                        class="form-control"
+                        value={email}
+                        required
+                        onChange={(e) => {
+                          setEmail(e.target.value);
                         }} />
                     </div>
                   </div>

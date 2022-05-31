@@ -5,7 +5,7 @@ const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 // ADD STAFF MEMBER
 exports.addStaffMember = catchAsyncErrors((req, res) => {
 
-  const { name, idNumber, faculty, department, researchInterest, type, password } = req.body;
+  const { name, idNumber, faculty, department, researchInterest, type, password, email } = req.body;
 
   const newStaffMember = new Staff({
     name,
@@ -15,6 +15,7 @@ exports.addStaffMember = catchAsyncErrors((req, res) => {
     researchInterest,
     type,
     password,
+    email
   });
 
   newStaffMember.save()
@@ -74,6 +75,25 @@ exports.getStaffMember = catchAsyncErrors(async (req, res) => {
   }
 });
 
+// GET A STUDENT using UserID
+exports.getStaffUsingUserID = catchAsyncErrors(async (req, res) => {
+  // let staffUserID = req.params.userID;
+  const staffUserID = req.params.userID
+
+  try {
+    Staff.findOne({ idNumber: staffUserID }, (err, result) => {
+      if (err) {
+        res.status(500).json(err)
+      } else {
+        // res.json(result)
+        res.json(result);
+      }
+    })
+  } catch (error) {
+    console.error(error)
+  }
+});
+
 
 
 
@@ -81,7 +101,7 @@ exports.getStaffMember = catchAsyncErrors(async (req, res) => {
 exports.updateStaffMember = catchAsyncErrors(async (req, res) => {
   let staffMemberID = req.params.id;
 
-  const { name, idNumber, faculty, department, researchInterest, type, password } = req.body;
+  const { name, idNumber, faculty, department, researchInterest, type, password, email } = req.body;
 
   const updateStaffMember = {
     name,
@@ -90,7 +110,8 @@ exports.updateStaffMember = catchAsyncErrors(async (req, res) => {
     department,
     researchInterest,
     type,
-    password
+    password,
+    email
   };
 
   Staff.updateOne({ _id: staffMemberID }, updateStaffMember, (err, result) => {

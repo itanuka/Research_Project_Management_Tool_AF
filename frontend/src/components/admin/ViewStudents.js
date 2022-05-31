@@ -85,8 +85,10 @@ function ViewStudents() {
               <th> Name </th>
               <th> Degree </th>
               <th> Specilization </th>
+              <th>Email</th>
               <th> Update </th>
               <th> Delete </th>
+              
             </thead>
             <tbody>
               {filteredStudents.map((student) => {
@@ -96,6 +98,7 @@ function ViewStudents() {
                     <td> {student.name} </td>
                     <td> {student.degree} </td>
                     <td> {student.specialization} </td>
+                    <td>{student.email}</td>
                     <td>
                       <button className="btn btn-warning p-1"
                         onClick={() => {

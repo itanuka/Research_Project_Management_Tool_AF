@@ -18,6 +18,7 @@ function UpdateStudent() {
   const [password, setPassword] = useState("");
   const [showText, setShowText] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
 
@@ -31,6 +32,7 @@ function UpdateStudent() {
       idNumber,
       degree,
       specialization,
+      email
     };
 
     axios
@@ -56,6 +58,7 @@ function UpdateStudent() {
     setDegree("");
     setSpecialization("");
     setPassword("");
+    setEmail("");
   };
 
   useEffect(() => {
@@ -67,6 +70,7 @@ function UpdateStudent() {
         setStudentID(res.data.idNumber);
         setDegree(res.data.degree);
         setSpecialization(res.data.specialization);
+        setEmail(res.data.email);
       })
 
       .catch((err) => {
@@ -138,6 +142,20 @@ function UpdateStudent() {
                             required
                             onChange={(e) => {
                               setSpecialization(e.target.value);
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      <div class = "form-row">
+                      <div class="col">
+                          <label for="inputFirstName">Email</label>
+                          <input type="email"
+                            class="form-control"
+                            value={email}
+                            required
+                            onChange={(e) => {
+                              setDegree(e.target.value);
                             }}
                           />
                         </div>

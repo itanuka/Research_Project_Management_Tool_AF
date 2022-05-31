@@ -35,10 +35,10 @@ function Login() {
 
 
       if (data.role === "student") {
-        // navigate("/student");
         window.location = "/student"
       } else if (data.role === "supervisor") {
         navigate("/supervisor");
+        window.location = "/supervisor"
       } else if (data.role === "admin") {
         navigate("/admin-home");
       } else if (data.role === "panel_member") {

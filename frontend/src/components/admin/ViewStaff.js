@@ -89,6 +89,7 @@ function ViewStaff() {
               <th> Faculty </th>
               <th> Research_Interest </th>
               <th> User Type </th>
+              <th>Email</th>
               <th> Update </th>
               <th> Delete </th>
             </thead>
@@ -102,6 +103,7 @@ function ViewStaff() {
                     <td> {member.faculty} </td>
                     <td> {member.researchInterest} </td>
                     <td> {member.type} </td>
+                    <td>{member.email}</td>
                     <td>  <button className="btn btn-warning"
                       onClick={() => {
                         navigate(`update/${member._id}`)
