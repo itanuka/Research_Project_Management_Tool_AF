@@ -4,12 +4,12 @@ const StudentRequest = require("../models/StudentRequests")
 // @route POST /api/v1/requests/newRequest
 // @access Private
 const createRequest = async (req, res) => {
-    const { groupId, staffId } = req.body
+    const { group, staffMember } = req.body
 
     try {
         const newRequest = await StudentRequest.create({
-            groupId,
-            staffId
+            group,
+            staffMember
         })
 
         if(newRequest)
@@ -17,7 +17,7 @@ const createRequest = async (req, res) => {
         
     } catch (error) {
         res.status(400).json({
-            ERR_CODE: error.code
+            error
         })
     }
 }

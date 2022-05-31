@@ -149,11 +149,11 @@ exports.deleteGroup = async (req, res) => {
 /** @desc   update existing group so that supervisor, co-supervisor, and panel
  *          members can be added to the existing group
  * */
-// @route UPDATE /api/v1/groups/updateWithStaff/:groupName
+// @route UPDATE /api/v1/groups/updateWithStaff/:id
 // @access private
 
-const updateWithStaff = async (req, res) => {
-    const groupName = req.params.groupName
+exports.updateWithStaff = async (req, res) => {
+    const groupId = req.params.id
     
     const supervisor = req.body.supervisor
     const co_supervisor = req.body.co_supervisor
@@ -162,7 +162,7 @@ const updateWithStaff = async (req, res) => {
     let updateInfo
 
     if(supervisor) {
-        updateInfo = await Group.updateOne({groupName: groupName},
+        updateInfo = await Group.updateOne({_id: groupId},
             {
                 $set: {
                     supervisor: supervisor
@@ -170,7 +170,7 @@ const updateWithStaff = async (req, res) => {
             }
         )
     } else if(co_supervisor) {
-        updateInfo = await Group.updateOne({groupName: groupName},
+        updateInfo = await Group.updateOne({_id: groupId},
             {
                 $set: {
                     co_supervisor: co_supervisor
@@ -178,7 +178,7 @@ const updateWithStaff = async (req, res) => {
             }
         )
     } else if(panel_member) {
-        updateInfo = await Group.updateOne({groupName: groupName},
+        updateInfo = await Group.updateOne({_id: groupId},
             {
                 $set: {
                     panel_member: panel_member
@@ -193,5 +193,3 @@ const updateWithStaff = async (req, res) => {
 
     res.status(201).json(updateInfo)
 }
-
-module.exports = { updateWithStaff }

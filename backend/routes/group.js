@@ -16,6 +16,6 @@ router.route("/").get(getAllGroup);
 router.route("/update/:id").put(updateGroup);
 router.route("/delete/:id").delete(deleteGroup);
 router.route("/get/:id").get(getGroup);
-router.route("/updateWithStaff/:groupName").put(updateWithStaff);
+router.route("/updateWithStaff/:id").put(updateWithStaff);
 
 module.exports = router;
