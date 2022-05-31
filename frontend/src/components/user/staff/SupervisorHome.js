@@ -1,17 +1,17 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
 
 function SupervisorHome() {
 
   const [user, setUser] = useState({});
 
-  useEffect(()=>{
+  useEffect(() => {
 
     try {
       const jwt = localStorage.getItem("token");
       setUser(jwtDecode(jwt));
     } catch (error) {
-      
+
     }
   }, []);
 

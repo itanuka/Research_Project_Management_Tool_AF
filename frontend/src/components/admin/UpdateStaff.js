@@ -19,6 +19,7 @@ function UpdateStaff() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [researchInterest, setresearchInterest] = useState("");
+  const [email, setEmail] = useState("");
 
   const [showText, setShowText] = useState(false);
   const [role, setRole] = useState("");
@@ -52,6 +53,7 @@ function UpdateStaff() {
       department,
       researchInterest,
       type,
+      email
     };
     const userID = idNumber;
 
@@ -74,6 +76,7 @@ function UpdateStaff() {
     setDepartment("");
     setType("");
     setresearchInterest("");
+    setEmail("");
 
     navigate("/admin/staff");
   };
@@ -89,6 +92,7 @@ function UpdateStaff() {
         setDepartment(res.data.department);
         setType(res.data.type);
         setresearchInterest(res.data.researchInterest);
+        setEmail(res.data.email);
       })
 
       .catch((err) => {
@@ -188,6 +192,17 @@ function UpdateStaff() {
                           <label for="inputResearchInterest">research Interest</label>
                           <input type="text"
                             class="form-control"
+                          />
+                        </div>
+                      </div>
+
+                      <div class = "form-row mt-2">
+                      <div class="col">
+                          <label for="inputIdNumber">Email</label>
+                          <input type="email"
+                            class="form-control"
+                            value={email}
+                           
                           />
                         </div>
                       </div>

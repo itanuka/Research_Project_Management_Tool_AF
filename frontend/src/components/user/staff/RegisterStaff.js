@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 function RegisterStaff() {
   const [loading, setLoading] = useState(false);
-  const [name, setSetName] = useState("");
+  const [name, setName] = useState("");
   const [idNumber, setID] = useState("");
   const [faculty, setFaculty] = useState("");
   const [department, setDepartment] = useState("");
@@ -16,6 +16,7 @@ function RegisterStaff() {
   const [researchInterest, setresearchInterest] = useState("");
   const [showText, setShowText] = useState(false);
   const [role, setRole] = useState("");
+  const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
 
@@ -39,13 +40,14 @@ function RegisterStaff() {
       setShowText(false);
       setLoading(true);
 
-      const newStudent = {
+      const newStaff = {
         name,
         idNumber,
         faculty,
         department,
         researchInterest,
         type,
+        email
       };
       const userID = idNumber;
       const newLogin = {
@@ -57,7 +59,7 @@ function RegisterStaff() {
       axios
         .post(
           "http://localhost:4000/api/v1/staff/registerStaffMember",
-          newStudent
+          newStaff
         )
         .then((res) => {
           console.log(res);
@@ -87,13 +89,14 @@ function RegisterStaff() {
 
       navigate("/");
 
-      setSetName("");
+      setName("");
       setID("");
       setFaculty("");
       setDepartment("");
       setPassword("");
       setType("");
       setresearchInterest("");
+      setEmail("");
     } else {
       Swal.fire({
         title: "Incorrect Password!!",
@@ -126,7 +129,7 @@ function RegisterStaff() {
                         value={name}
                         required
                         onChange={(e) => {
-                          setSetName(e.target.value);
+                          setName(e.target.value);
                         }}
                       />
                     </div>
@@ -232,6 +235,22 @@ function RegisterStaff() {
                         }}
                       />
                     </div>
+                  </div>
+
+                  <div class="form-row">
+
+                    <div class="col">
+                      <label for="inputName">Email</label>
+                      <input type="email"
+                        class="form-control"
+                        value={email}
+                        required
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                        }}
+                      />
+                    </div>
+                    
                   </div>
 
                   <button type="submit" class="btn btn-primary mt-4"

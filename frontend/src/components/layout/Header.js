@@ -1,5 +1,6 @@
 
 import React, { Fragment, useEffect } from 'react'
+import axios from "axios";
 import { useState } from "react";
 import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
@@ -17,6 +18,7 @@ import '../style/header.css'
 function Header() {
 
     const [user, setUser] = useState({});
+    const [id, setId] = useState("");
 
     useEffect(() => {
 
@@ -27,6 +29,68 @@ function Header() {
 
         }
     }, []);
+
+    const handleMyClick = (e) => {
+        e.preventDefault();
+
+        if (user.role == "student") {
+            axios
+                .get("http://localhost:4000/api/v1/students/getStudentUsingUserID/" + user.userID)
+                .then((res) => {
+
+                    setId(res.data._id.toString());
+                })
+
+                .catch((err) => {
+                    console.log(err);
+                });
+
+        }
+
+        if (user.role == "supervisor") {
+            axios
+                .get("http://localhost:4000/api/v1/staff/getStaffUsingUserID/" + user.userID)
+                .then((res) => {
+
+                    setId(res.data._id.toString());
+                })
+
+                .catch((err) => {
+                    console.log(err);
+                });
+
+        }
+
+
+
+
+
+
+        // console.log(navigateLink);
+
+        // navigate(`update/${member._id}`)
+
+        // const link = id;
+
+        // console.log(link);
+
+        // window.location = link
+
+    };
+
+    useEffect(() => {
+        if (user.role == "student") {
+            navigateLink = "/students/view/" + id;
+            navigate(navigateLink);
+        }
+
+        if (user.role == "supervisor") {
+            navigateLink = "/staff/view/" + id;
+            navigate(navigateLink);
+        }
+
+    }, [id]);
+
 
 
     const navigate = useNavigate();
@@ -49,11 +113,11 @@ function Header() {
                         <ul class="navbar-nav ">
 
 
-{/* LOGIC */}
+                            {/* LOGIC */}
                             {localStorage.getItem("token") ?
                                 <>
                                     <li class="nav-item">
-                                        <Link class="nav-link" to="#">{user.userID}</Link>
+                                        <Link class="nav-link" to="" onClick={handleMyClick}>{user.userID}</Link>
                                     </li>
                                     <li class="nav-item">
                                         <Link class="nav-link" to="#" onClick={logout}>Log Out</Link>

@@ -31,9 +31,9 @@ export default function UserSideBar() {
                                 <a href="#"><i class="fas fa-clipboard-list"></i> Templates</a>
                             </li>
 
-                            <li>
+                            {/* <li>
                                 <a href="/addAdmin"><i class="fas fa-plus"></i> Add New Admin</a>
-                            </li>
+                            </li> */}
 
                         </ul>
                     </nav>
