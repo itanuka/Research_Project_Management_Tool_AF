@@ -63,12 +63,21 @@ function AdminHome() {
 
               <div class="col mb-4">
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
+                  <div class="card-header text-center">View Student Group</div>
+                  <div class="card-body">
+                    <a href="/admin/groups" className="custom-size"><i class="fas fa-clipboard-list"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              {/* <div class="col mb-4">
+                <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
                   <div class="card-header text-center">Upload Template</div>
                   <div class="card-body">
                     <a href="/addAdmin" className="custom-size"><i class="fas fa-clipboard-list"></i></a>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
             </div>
           </div>

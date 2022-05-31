@@ -17,6 +17,10 @@ import RegisterStaff from "./components/user/staff/RegisterStaff";
 import SupervisorHome from "./components/user/staff/SupervisorHome";
 import PanelMemberHome from "./components/user/staff/PanelMemberHome";
 
+import ViewGroups from './components/admin/ViewGroups'
+import CreateGroup from './components/user/student/CreateGroup'
+import UpdateGroup from './components/admin/UpdateGroup'
+
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 
@@ -44,6 +48,10 @@ export function App() {
           <Route path="/registerStaff" element={<RegisterStaff />}></Route>
           <Route path="/supervisor" element={<SupervisorHome />}></Route>
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
+
+          <Route path="/admin/groups" element={<ViewGroups />}></Route>
+          <Route path="admin/groups/update/:id" element={<UpdateGroup />}></Route>
+          <Route path="/student/createGroup" element={<CreateGroup />}></Route>
         </Routes>
       </BrowserRouter>
 
