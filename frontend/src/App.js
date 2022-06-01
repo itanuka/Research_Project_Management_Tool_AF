@@ -23,8 +23,8 @@ import UpdateSupervisorProfile from "./components/user/staff/UpdateSupervisorPro
 import PanelMemberHome from "./components/user/staff/PanelMemberHome";
 
 import ViewGroups from './components/admin/ViewGroups'
-import CreateGroup from './components/user/student/CreateGroup'
 import UpdateGroup from './components/admin/UpdateGroup'
+import CreateGroup from './components/user/student/CreateGroup'
 
 //tharusha
 import React from 'react';
@@ -62,7 +62,7 @@ export function App() {
           <Route path="/supervisor" element={<SupervisorHome />}></Route>
           <Route path="/staff/view/:id" element={<ViewSupervisorProfile />}></Route>
           <Route path="/staff/update/:id" element={<UpdateSupervisorProfile />}></Route>
-          
+
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
 
           <Route path="/admin/groups" element={<ViewGroups />}></Route>

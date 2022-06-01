@@ -1,9 +1,14 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const mongoose = require('mongoose');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
 const User = require("../models/User");
+const Student = require("../models/Student");
+const Staff = require("../models/Staff");
+
 
 const dotenv = require('dotenv');
+const Group = require("../models/Group");
 dotenv.config({ path: 'config/config.env' });
 
 
@@ -84,44 +89,124 @@ exports.deleteLoginMember2 = catchAsyncErrors(async (req, res) => {
 // LOGIN 
 exports.login = catchAsyncErrors(async (req, res) => {
 
-  User.findOne({ userID: req.body.userID },
-    async function (err, result) {
+  const user = await User.findOne({ userID: req.body.userID });
+  const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
 
-      try {
-        if (!result) {
-          return res.status(500).json(err);
-        } else {
-          console.log(result);
+  if (isPasswordValid) {
+    let token;
+    let userObectID = "";
+    let userID = "";
+    let groupID = "";
+    let groupName = "";
 
-          const isPasswordValid = await bcrypt.compare(
-            req.body.password,
-            result.password
-          );
 
-          if (isPasswordValid) {
-            const token = jwt.sign(
-              {
-                userID: result.userID,
-                role: result.role,
-              },
-              process.env.JWT_SECRET
-            );
-            return res.json({
-              status: "ok",
-              user: token,
-              role: result.role,
-              userID: result.userID,
-              id: result._id,
-            });
-          } else {
-            return res.json({ status: "PASSWORD INVALID", user: false });
-          }
-        }
-      } catch (err) {
-        console.error(err)
+    if (user.role == 'student') {
+      const student = await Student.findOne({ idNumber: user.userID });
+      userObectID = student._id.toString();
+      userID = student.idNumber;
+
+      var userObectIDConverted = mongoose.Types.ObjectId(userObectID);
+
+      const group = await Group.findOne({ firstMember: userObectIDConverted }, { secondMember: userObectIDConverted }).select('groupName');;
+      if (group) {
+        groupID = group._id.toString();
+        groupName = group.groupName;
+
+        token = jwt.sign(
+          {
+            userObectID: userObectID,
+            userID: userID,
+            role: user.role,
+            groupID: groupID,
+            groupName: groupName
+          },
+          process.env.JWT_SECRET
+        );
+      }
+      else {
+        token = jwt.sign(
+          {
+            userObectID: userObectID,
+            userID: userID,
+            role: user.role,
+          },
+          process.env.JWT_SECRET
+        );
       }
 
     }
-  );
+    else {
+      const staff = await Staff.findOne({ idNumber: user.userID });
+      userObectID = staff._id.toString();
+      userID = staff.idNumber;
+
+      token = jwt.sign(
+        {
+          userObectID: userObectID,
+          userID: userID,
+          role: user.role,
+        },
+        process.env.JWT_SECRET
+      );
+
+
+    }
+
+
+    return res.json({
+      status: "ok",
+      user: token,
+      userObectID: userObectID,
+      userID: userID,
+      role: user.role,
+      // role: result.role,
+      // userID: result.userID,
+      // id: result._id,
+    });
+  }
+  else {
+    return res.json({ status: "PASSWORD INVALID", user: false });
+  }
+
+
+  // User.findOne({ userID: req.body.userID },
+  //   async function (err, result) {
+
+  //     try {
+  //       if (!result) {
+  //         return res.status(500).json(err);
+  //       } else {
+  //         console.log(result);
+
+  //         const isPasswordValid = await bcrypt.compare(
+  //           req.body.password,
+  //           result.password
+  //         );
+
+  //         if (isPasswordValid) {
+  //           const token = jwt.sign(
+  //             {
+  //               userID: result.userID,
+  //               role: result.role,
+  //             },
+  //             process.env.JWT_SECRET
+  //           );
+  //           return res.json({
+  //             status: "ok",
+  //             user: token,
+  //             role: result.role,
+  //             userID: result.userID,
+  //             id: result._id,
+  //           });
+  //         } else {
+  //           return res.json({ status: "PASSWORD INVALID", user: false });
+  //         }
+  //       }
+  //     } catch (err) {
+  //       console.error(err)
+  //     }
+
+  //   }
+  // );
 
 });
