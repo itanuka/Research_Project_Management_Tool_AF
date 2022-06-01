@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../layout/Loader";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import AdminSideBar from "../../layout/AdminSideBar";
+import UserSideBar from "../../layout/UserSideBar";
 
 
 function ViewSupervisorProfile() {
@@ -62,9 +62,10 @@ function ViewSupervisorProfile() {
         <div>
             <div className="row">
                 <div className="col-2">
-                    <AdminSideBar />
+                    <UserSideBar />
                 </div>
                 <div className="col-10">
+                <div className="row" style={{ height: "60px" }}></div>
                     <div class="container">
                         <div class="row mt-5 mb-5">
                             <div class="col-md-2"></div>
@@ -72,13 +73,13 @@ function ViewSupervisorProfile() {
 
                                 <div class="card ">
                                     <div class="card-body">
-                                        <h2 class="mb-4">View Staff Details</h2>
+                                        <h2 class="mb-4 text-center">My Profile</h2>
 
                                         <form onSubmit={handleSubmit} id="form">
 
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <label for="inputFirstName">Name</label>
+                                                    <label for="inputName">Name</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={name}
@@ -87,7 +88,7 @@ function ViewSupervisorProfile() {
                                                     />
                                                 </div>
                                                 <div class="col">
-                                                    <label for="inputLastName">ID Number</label>
+                                                    <label for="inputIdNumber">Staff ID</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={idNumber}
@@ -100,7 +101,7 @@ function ViewSupervisorProfile() {
 
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <label for="inputFirstName">Faculty</label>
+                                                    <label for="inputFaculty">Faculty</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={faculty}
@@ -109,7 +110,7 @@ function ViewSupervisorProfile() {
                                                     />
                                                 </div>
                                                 <div class="col">
-                                                    <label for="inputLastName">Department</label>
+                                                    <label for="inputDepartment">Department</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={department}
@@ -121,7 +122,20 @@ function ViewSupervisorProfile() {
 
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <label for="inputFirstName">Research Interest</label>
+                                                    <label for="inputEmail">Email</label>
+                                                    <input type="email"
+                                                        class="form-control"
+                                                        value={email}
+                                                        required
+                                                        readOnly
+                                                    />
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <label for="inputResearchInterst">Research Interest</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={researchInterest}
@@ -130,36 +144,12 @@ function ViewSupervisorProfile() {
                                                     />
                                                 </div>
                                                 <div class="col">
-                                                    {/* <label for="inputLastName">Department</label>
-                                                    <input type="text"
-                                                        class="form-control"
-                                                        value={department}
-                                                        required
-                                                        readOnly
-                                                    /> */}
-                                                </div>
-                                            </div>
-
-                                            <div class="form-row">
-                                                <div class="col">
-                                                    <label for="inputFirstName">Password</label>
+                                                    <label for="inputPassword">Password</label>
                                                     <input type="password"
                                                         class="form-control"
-                                                        name='password'
                                                         value={password}
-                                                        required
-                                                        fullWidth
-                                                        readOnly />
-                                                </div>
-                                                <div class="col">
-                                                    <label for="inputLastName">Email</label>
-                                                    <input type="email"
-                                                        class="form-control"
-                                                        name='password'
-                                                        value={email}
-                                                        required
+                                                        required 
                                                         readOnly
-
                                                     />
                                                 </div>
                                             </div>

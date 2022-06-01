@@ -85,6 +85,7 @@ function UpdateStudent() {
           <AdminSideBar />
         </div>
         <div className="col-10">
+          <div className="row" style={{ height: "50px" }}></div>
           <div class="container">
             <div class="row mt-5 mb-5">
               <div class="col-md-2"></div>
@@ -92,31 +93,27 @@ function UpdateStudent() {
 
                 <div class="card ">
                   <div class="card-body">
-                    <h2 class="mb-4">Update Student Details</h2>
+                    <h2 class="mb-4 text-center">{idNumber} Details</h2>
 
                     <form onSubmit={handleSubmit} id="form">
 
                       <div class="form-row">
                         <div class="col">
-                          <label for="inputFirstName">Student Name</label>
+                          <label for="inputName">Student Name</label>
                           <input type="text"
                             class="form-control"
                             value={name}
                             required
-                            onChange={(e) => {
-                              setStudentName(e.target.value);
-                            }}
+                            readOnly
                           />
                         </div>
                         <div class="col">
-                          <label for="inputLastName">ID Number</label>
+                          <label for="inputIdNumber">ID Number</label>
                           <input type="text"
                             class="form-control"
                             value={idNumber}
                             required
-                            onChange={(e) => {
-                              setStudentID(e.target.value);
-                            }}
+                            readOnly
                           />
                         </div>
                       </div>
@@ -124,7 +121,7 @@ function UpdateStudent() {
 
                       <div class="form-row">
                         <div class="col">
-                          <label for="inputFirstName">Degree</label>
+                          <label for="inputDegree">Degree</label>
                           <input type="text"
                             class="form-control"
                             value={degree}
@@ -135,7 +132,7 @@ function UpdateStudent() {
                           />
                         </div>
                         <div class="col">
-                          <label for="inputLastName">Specialization</label>
+                          <label for="inputSpecializaion">Specialization</label>
                           <input type="text"
                             class="form-control"
                             value={specialization}
@@ -147,16 +144,14 @@ function UpdateStudent() {
                         </div>
                       </div>
 
-                      <div class = "form-row">
-                      <div class="col">
-                          <label for="inputFirstName">Email</label>
+                      <div class="form-row">
+                        <div class="col">
+                          <label for="inputEmail">Email</label>
                           <input type="email"
                             class="form-control"
                             value={email}
                             required
-                            onChange={(e) => {
-                              setDegree(e.target.value);
-                            }}
+                            readOnly
                           />
                         </div>
                       </div>
