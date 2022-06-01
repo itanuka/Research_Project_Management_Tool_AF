@@ -7,6 +7,9 @@ function CoSupervisorList() {
     const [staff, setStaff] = useState([])
     const [coSupervisors, setCoSupervisors] = useState([])
 
+    const [keyword, setKeyword] = useState("")
+
+
     async function getCoSupervisors() {
         await axios.get("http://localhost:4000/api/v1/staff/")
         .then((res)=> {
@@ -16,12 +19,18 @@ function CoSupervisorList() {
         setCoSupervisors(
             staff.filter((member)=>member.type === "co-supervisor")
         )
-    }
+    }   //end of getCoSupervisors function
 
 
     useEffect(()=>{
         getCoSupervisors()
     }, [])
+
+    // search function
+    const searchedCoSupervisors = coSupervisors.filter((coSupervisor) => {
+        return coSupervisor.name.toLowerCase().includes(keyword.toLowerCase())
+    })
+
 
     return (
         <motion.div className='container'
@@ -30,6 +39,16 @@ function CoSupervisorList() {
         exit={{ x: window.innerWidth, y: window.innerHeight }}
         >
             <h1 className='mt-3'> List of Co-Supervisors </h1>
+
+            <div className='row mr-1'>
+                <div className='col-md-8'></div>
+                <input className="mt-5 col-md input-group-text" placeholder="Search Co-Supervisor by Name..." style={{borderStyle:"initial"}}
+                    onChange={(e) => {
+                    setKeyword(e.target.value)
+                    }}
+                />
+            </div>
+
             <table className='table table-light table-striped table-hover mt-5'>
                 <thead>
                     <tr className='table-row'>
@@ -40,7 +59,7 @@ function CoSupervisorList() {
                     </tr>
                 </thead>
                 <tbody>
-                    {coSupervisors.map(coSupervisor=>{
+                    {searchedCoSupervisors.map(coSupervisor=>{
                         return(<tr key={coSupervisor._id}>
                             <td> { coSupervisor.name } </td>
                             <td> { coSupervisor.idNumber } </td>
