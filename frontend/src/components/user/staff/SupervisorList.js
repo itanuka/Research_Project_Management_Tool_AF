@@ -1,14 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion"
+import axios from "axios"
 
 function SupervisorList() {
-    const supervisors = [
-        { id: 1, name: "Supervisor 1", Interest: "Research Interest 1" },
-        { id: 2, name: "Supervisor 2", Interest: "Research Interest 2" },
-        { id: 3, name: "Supervisor 3", Interest: "Research Interest 3" },
-        { id: 4, name: "Supervisor 4", Interest: "Research Interest 4" },
-        { id: 5, name: "Supervisor 5", Interest: "Research Interest 5" }
-    ]
+    // const supervisors = [
+    //     { id: 1, name: "Supervisor 1", Interest: "Research Interest 1" },
+    //     { id: 2, name: "Supervisor 2", Interest: "Research Interest 2" },
+    //     { id: 3, name: "Supervisor 3", Interest: "Research Interest 3" },
+    //     { id: 4, name: "Supervisor 4", Interest: "Research Interest 4" },
+    //     { id: 5, name: "Supervisor 5", Interest: "Research Interest 5" }
+    // ]
+    const [staff, setStaff] = useState([])
+    const [supervisors, setSupervisors] = useState([])
+
+    async function getSupervisors() {
+        await axios.get("http://localhost:4000/api/v1/staff/")
+        .then((res)=> {
+            setStaff(res.data)
+        })
+
+        setSupervisors(
+            staff.filter((member)=>member.type==="supervisor")
+        )
+    }
+    
+
+    useEffect(()=>{
+        getSupervisors()
+    }, [])
 
   return (
     <motion.div
@@ -21,15 +40,17 @@ function SupervisorList() {
             <thead>
                 <tr className='table-row'>
                     <th scope='col'> Name </th>
-                    <th scope='col'> Interest </th>
+                    <th scope='col'> ID Number </th>
+                    <th scope='col'> Research Interest </th>
                     <th scope='col'> Request </th>
                 </tr>
             </thead>
             <tbody>
                 {supervisors.map(supervisor=>{
-                    return(<tr key={supervisor.id}>
-                        <td> { supervisor.name } </td>
-                        <td style={{}}> { supervisor.Interest } </td>
+                    return(<tr key={supervisor.idNumber}>
+                        <td> { supervisor.type } </td>
+                        <td> { supervisor.idNumber } </td>
+                        <td style={{}}> { supervisor.researchInterest } </td>
                         <td>
                             <motion.button className='btn btn-primary px-4'
                             initial={{backgroundColor:'white', transitionDuration:"3s"}}
