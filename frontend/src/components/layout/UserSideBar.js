@@ -28,7 +28,8 @@ export default function UserSideBar() {
                             </li>
 
                             <li>
-                                <a href="#"><i class="fas fa-clipboard-list"></i> Templates</a>
+                                {/* <a href="#"><i class="fas fa-clipboard-list"></i> Templates</a> */}
+                                <a href='/fileupload'><i class="fa-solid fa-file-circle-plus"></i>Topic Submition</a>
                             </li>
 
                             {/* <li>
