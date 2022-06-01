@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
+import axios from 'axios'
 
 function RequestListCoSupervisor() {
 
-    const requestList = [
-        { id: 1, grpId: "Grp_01", topic: "Research Topic 1" },
-        { id: 2, grpId: "Grp_02", topic: "Research Topic 2" },
-        { id: 3, grpId: "Grp_03", topic: "Research Topic 3" },
-        { id: 4, grpId: "Grp_04", topic: "Research Topic 4" },
-        { id: 5, grpId: "Grp_05", topic: "Research Topic 5" }
-    ]
+    const [requests, setRequests] = useState([])
+    let requestNumber = 0
+
+    // IMPORTANT --> change the url (given url is strictly for demonstration purposes)
+    async function getRequests() {
+        axios.get("http://localhost:4000/api/v1/requests/getRequestByStaffId/6291df9650646990e2ccbdc4")
+        .then(res => setRequests(res.data))
+    }
+
+    useEffect(()=>{
+        getRequests()
+    }, [])
 
   return (
     <motion.div
@@ -29,11 +35,11 @@ function RequestListCoSupervisor() {
                 </tr>
             </thead>
             <tbody>
-                {requestList.map(request=>(
-                    <tr key={request.id}>
-                        <td colSpan='2' className='align-middle col-2'> {request.id} </td>
-                        <td className='align-middle col-2'> {request.grpId} </td>
-                        <td className='align-middle'> {request.topic} </td>
+                {requests.map(request=>(
+                    <tr key={request}>
+                        <td colSpan='2' className='align-middle col-2'> {++requestNumber} </td>
+                        <td className='align-middle col-2'> {request.group} </td>
+                        <td className='align-middle'>  </td>
                         <td className='align-middle'> 
                             <motion.button className='btn btn-success px-4'
                             initial={{backgroundColor:'white', transitionDuration:"3s"}}
