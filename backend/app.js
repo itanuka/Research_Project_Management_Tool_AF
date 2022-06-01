@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv").config();
+const path = require('path');
 
 
 const app = express();
@@ -15,6 +16,7 @@ const StudentRouter = require("./routes/student");
 const StaffRouter = require("./routes/staff");
 const GroupRouter = require("./routes/group");
 const studentRequestsRouter = require("./routes/studentRequests");
+const topicRoute = require('./routes/topic');
 
 app.use("/api/v1/students", StudentRouter);
 app.use("/api/v1/staff", StaffRouter);
@@ -22,6 +24,12 @@ app.use("/api/v1/groups", GroupRouter);
 app.use("/api/v1/users", UserRouter);
 app.use("/api/v1/requests", studentRequestsRouter);
 
+app.use(express.static(path.join(__dirname, '..', 'build')));
+app.use(topicRoute);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+  });
 
 
 module.exports = app;
