@@ -3,13 +3,7 @@ import { motion } from "framer-motion"
 import axios from "axios"
 
 function SupervisorList() {
-    // const supervisors = [
-    //     { id: 1, name: "Supervisor 1", Interest: "Research Interest 1" },
-    //     { id: 2, name: "Supervisor 2", Interest: "Research Interest 2" },
-    //     { id: 3, name: "Supervisor 3", Interest: "Research Interest 3" },
-    //     { id: 4, name: "Supervisor 4", Interest: "Research Interest 4" },
-    //     { id: 5, name: "Supervisor 5", Interest: "Research Interest 5" }
-    // ]
+    
     const [staff, setStaff] = useState([])
     const [supervisors, setSupervisors] = useState([])
 
