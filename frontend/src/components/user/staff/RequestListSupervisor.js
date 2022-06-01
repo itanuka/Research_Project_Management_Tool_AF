@@ -34,8 +34,18 @@ function RequestListSupervisor() {
                         <td colSpan='2' className='align-middle col-2'> {request.id} </td>
                         <td className='align-middle col-2'> {request.grpId} </td>
                         <td className='align-middle'> {request.topic} </td>
-                        <td className='align-middle'> <button className='btn btn-success px-4'> Accept </button> </td>
-                        <td className='align-middle'> <button className='btn btn-danger px-4'> Reject </button> </td>
+                        <td className='align-middle'> 
+                            <motion.button className='btn btn-success px-4'
+                            initial={{backgroundColor:'white', transitionDuration:"3s"}}
+                            animate={{backgroundColor:'#181'}}
+                            > Accept </motion.button>
+                        </td>
+                        <td className='align-middle'> 
+                            <motion.button className='btn btn-danger px-4'
+                                initial={{backgroundColor:'white', transitionDuration:"3s"}}
+                                animate={{backgroundColor:'#811'}}
+                            > Reject </motion.button>
+                        </td>
                     </tr>
                 ))}
             </tbody>

@@ -31,7 +31,10 @@ function CoSupervisorList() {
                         <td> { co_supervisor.name } </td>
                         <td> { co_supervisor.Interest } </td>
                         <td>
-                            <button className='btn btn-primary px-4'> Request </button>
+                            <motion.button className='btn btn-primary px-4'
+                            initial={{backgroundColor:'white', transitionDuration:"3s"}}
+                            animate={{backgroundColor:'#015'}}
+                            > Request </motion.button>
                         </td>
                     </tr>)
                 })}
