@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <Fragment>
 
-            <div class="container-fluid bg-dark align-items-end text-light mt-auto  ">
+            <div class="container-fluid align-items-end text-light mt-auto  "  style={{ background: '#232f3e' }}>
                 {/* <section class="row ">
                 <div class="col-3">
                     <h2 class = "mt-2">About Us</h2>

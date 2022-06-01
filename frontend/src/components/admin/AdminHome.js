@@ -26,7 +26,7 @@ function AdminHome() {
       
       <div className="row">
 
-        <div className="col-2">
+        <div className="col-2" >
           <AdminSideBar />
         </div>
 
@@ -63,9 +63,9 @@ function AdminHome() {
 
               <div class="col mb-4">
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                  <div class="card-header text-center">Upload Template</div>
+                  <div class="card-header text-center">Manage Student Groups</div>
                   <div class="card-body">
-                    <a href="/addAdmin" className="custom-size"><i class="fas fa-clipboard-list"></i></a>
+                    <a href="/admin/groups" className="custom-size"><i class="fa-solid fa-users-rectangle"></i></a>
                   </div>
                 </div>
               </div>

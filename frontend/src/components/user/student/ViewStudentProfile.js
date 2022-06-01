@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../layout/Loader";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import AdminSideBar from "../../layout/AdminSideBar";
+import UserSideBar from "../../layout/UserSideBar";
 
 
 function ViewStudentProfile() {
@@ -62,9 +62,11 @@ function ViewStudentProfile() {
         <div>
             <div className="row">
                 <div className="col-2">
-                    <AdminSideBar />
+                    <UserSideBar />
                 </div>
                 <div className="col-10">
+                <div className="row" style={{ height: "60px" }}></div>
+
                     <div class="container">
                         <div class="row mt-5 mb-5">
                             <div class="col-md-2"></div>
@@ -72,75 +74,65 @@ function ViewStudentProfile() {
 
                                 <div class="card ">
                                     <div class="card-body">
-                                        <h2 class="mb-4">View Student Details</h2>
+                                        <h2 class="mb-4 text-center">My Profile</h2>
 
                                         <form onSubmit={handleSubmit} id="form">
 
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <label for="inputFirstName">Student Name</label>
+                                                    <label for="inputName">Student Name</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={name}
                                                         required
-                                                        readOnly
-                                                    />
+                                                        readOnly />
                                                 </div>
                                                 <div class="col">
-                                                    <label for="inputLastName">ID Number</label>
+                                                    <label for="inputIdNumber">Student ID</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={idNumber}
                                                         required
-                                                        readOnly
-                                                    />
+                                                        readOnly />
                                                 </div>
                                             </div>
 
 
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <label for="inputFirstName">Degree</label>
+                                                    <label for="inputDegree">Degree</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={degree}
                                                         required
-                                                        readOnly
-                                                    />
+                                                        readOnly />
                                                 </div>
                                                 <div class="col">
-                                                    <label for="inputLastName">Specialization</label>
+                                                    <label for="inputSpecialization">Specialization</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={specialization}
                                                         required
-                                                        readOnly
-                                                    />
+                                                        readOnly />
                                                 </div>
                                             </div>
 
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <label for="inputFirstName">Password</label>
+                                                    <label for="inputPassword">Password</label>
                                                     <input type="password"
                                                         class="form-control"
-                                                        name='password'
                                                         value={password}
                                                         required
-                                                        fullWidth
                                                         readOnly />
                                                 </div>
                                                 <div class="col">
                                                     <label for="inputLastName">Email</label>
                                                     <input type="email"
                                                         class="form-control"
-                                                        name='password'
                                                         value={email}
-                                                        required
-                                                        
-                                                        onChange={(e) => {
-                                                            setEmail(e.target.value);
-                                                        }} />
+                                                        readOnly
+                                                        required />
                                                 </div>
                                             </div>
 

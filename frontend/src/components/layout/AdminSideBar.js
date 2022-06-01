@@ -32,6 +32,10 @@ export default function adminSideBar() {
                             </li>
 
                             <li>
+                                <a href="/admin/groups"><i class="fa-solid fa-users-rectangle"></i> Students Groups</a>
+                            </li>
+
+                            <li>
                                 <a href="#"><i class="fas fa-clipboard-list"></i> Templates</a>
                             </li>
 

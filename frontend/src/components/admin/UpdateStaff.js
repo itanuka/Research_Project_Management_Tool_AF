@@ -108,6 +108,7 @@ function UpdateStaff() {
           <AdminSideBar />
         </div>
         <div className="col-10">
+          <div className="row" style={{ height: "50px" }}></div>
           <div class="container">
 
             <div class="row mt-5 mb-5">
@@ -116,7 +117,7 @@ function UpdateStaff() {
 
                 <div class="card ">
                   <div class="card-body">
-                    <h2 class="mb-4 text-center">Staff Member Details</h2>
+                    <h2 class="mb-4 text-center">{idNumber} Member Details</h2>
 
                     <form onSubmit={handleSubmit} encType="multipart/form-data">
 
@@ -126,6 +127,7 @@ function UpdateStaff() {
                           <input type="text"
                             class="form-control"
                             value={name}
+                            readOnly
                           />
                         </div>
                         <div class="col">
@@ -133,6 +135,7 @@ function UpdateStaff() {
                           <input type="text"
                             class="form-control"
                             value={idNumber}
+                            readOnly
                           />
                         </div>
                       </div>
@@ -192,17 +195,20 @@ function UpdateStaff() {
                           <label for="inputResearchInterest">research Interest</label>
                           <input type="text"
                             class="form-control"
+                            value={researchInterest}
+                            readOnly
                           />
                         </div>
                       </div>
 
-                      <div class = "form-row mt-2">
-                      <div class="col">
-                          <label for="inputIdNumber">Email</label>
+                      <div class="form-row mt-2">
+                        <div class="col">
+                          <label for="inputEmail">Email</label>
                           <input type="email"
                             class="form-control"
                             value={email}
-                           
+                            readOnly
+
                           />
                         </div>
                       </div>

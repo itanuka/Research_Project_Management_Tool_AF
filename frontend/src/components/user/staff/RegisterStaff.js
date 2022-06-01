@@ -109,6 +109,8 @@ function RegisterStaff() {
 
   return (
     <div>
+      <div className="row" style={{ height: "15px" }}></div>
+      
       <div class="container">
         <div class="row mt-5 mb-5">
           <div class="col-md-2"></div>
@@ -117,7 +119,7 @@ function RegisterStaff() {
             <div class="card ">
 
               <div class="card-body">
-                <h2 class="mb-4">Sign Up</h2>
+                <h2 class="mb-4 text-center">Sign Up</h2>
 
                 <form onSubmit={handleSubmit} encType="multipart/form-data" >
 
@@ -134,7 +136,7 @@ function RegisterStaff() {
                       />
                     </div>
                     <div class="col">
-                      <label for="inputIdNumber">ID Number</label>
+                      <label for="inputIdNumber">Staff ID</label>
                       <input type="text"
                         class="form-control"
                         value={idNumber}
@@ -211,6 +213,22 @@ function RegisterStaff() {
                     </div>
                   </div>
 
+                  <div class="form-row">
+
+                    <div class="col">
+                      <label for="inputName">Email</label>
+                      <input type="email"
+                        class="form-control"
+                        value={email}
+                        required
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                        }}
+                      />
+                    </div>
+                    
+                  </div>
+
 
                   <div class="form-row">
                     <div class="col">
@@ -237,21 +255,7 @@ function RegisterStaff() {
                     </div>
                   </div>
 
-                  <div class="form-row">
-
-                    <div class="col">
-                      <label for="inputName">Email</label>
-                      <input type="email"
-                        class="form-control"
-                        value={email}
-                        required
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                        }}
-                      />
-                    </div>
-                    
-                  </div>
+                  
 
                   <button type="submit" class="btn btn-primary mt-4"
                     style={{ width: '100%', height: '40px' }}
