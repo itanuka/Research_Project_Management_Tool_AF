@@ -43,9 +43,9 @@ function StudentHome() {
 
               <div class="col mb-4">
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                  <div class="card-header text-center">Dummy</div>
+                  <div class="card-header text-center">Topic Submition</div>
                   <div class="card-body">
-                    <a href="" className="custom-size"><i class=" fas fa-users"></i></a>
+                    <a href="/fileupload" className="custom-size"><i class="fa-solid fa-file-circle-plus"></i></a>
                   </div>
                 </div>
               </div>
