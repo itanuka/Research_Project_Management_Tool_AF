@@ -76,7 +76,7 @@ function ViewStaff() {
           <AdminSideBar />
         </div>
         <div className="col-10">
-          <input className="mt-5" placeholder="Search By Staff ID" style={{ width: "10vw", marginLeft: "75%" }}
+          <input className="mt-5" placeholder="Search By Staff ID" style={{ width: "10vw", marginLeft: "82%" }}
             onChange={(e) => {
               setSearchKeyword(e.target.value)
             }}
@@ -84,11 +84,11 @@ function ViewStaff() {
           <table className="table container mt-5">
             <thead>
               <th> Name </th>
-              <th> ID Number </th>
+              <th> Staff ID </th>
               <th> Department </th>
               <th> Faculty </th>
               <th> Research_Interest </th>
-              <th> User Type </th>
+              <th> Staff Type </th>
               <th>Email</th>
               <th> Update </th>
               <th> Delete </th>

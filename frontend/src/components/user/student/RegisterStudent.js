@@ -90,6 +90,8 @@ function RegisterStudent() {
 
   return (
     <div>
+
+      <div className="row" style={{ height: "60px" }}></div>
       <div class="container">
         <div class="row mt-5 mb-5">
           <div class="col-md-2"></div>
@@ -97,7 +99,7 @@ function RegisterStudent() {
 
             <div class="card ">
               <div class="card-body">
-                <h2 class="mb-4">Sign Up</h2>
+                <h2 class="mb-4 text-center">Sign Up</h2>
 
                 <form onSubmit={handleSubmit} id="form">
 
@@ -114,7 +116,7 @@ function RegisterStudent() {
                       />
                     </div>
                     <div class="col">
-                      <label for="inputIdNumber">ID Number</label>
+                      <label for="inputIdNumber">Student ID</label>
                       <input type="text"
                         class="form-control"
                         value={idNumber}
@@ -153,6 +155,20 @@ function RegisterStudent() {
                     </div>
                   </div>
 
+                  
+                  <div class="form-row">
+                    <div class="col">
+                      <label for="inputEmail">Email</label>
+                      <input type="email"
+                        class="form-control"
+                        value={email}
+                        required
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                        }} />
+                    </div>
+                  </div>
+
 
                   <div class="form-row">
                     <div class="col">
@@ -161,6 +177,7 @@ function RegisterStudent() {
                         class="form-control"
                         value={password}
                         required
+                        // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                         onChange={(e) => {
                           setPassword(e.target.value);
                         }} />
@@ -177,18 +194,6 @@ function RegisterStudent() {
                     </div>
                   </div>
 
-                  <div class = "form-row"> 
-                  <div class="col">
-                      <label for="inputPassword">Email</label>
-                      <input type="email"
-                        class="form-control"
-                        value={email}
-                        required
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                        }} />
-                    </div>
-                  </div>
 
 
                   <button type="submit" class="btn btn-primary mt-4"
