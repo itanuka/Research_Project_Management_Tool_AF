@@ -28,6 +28,7 @@ import UpdateGroup from './components/admin/UpdateGroup'
 
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
+import AnimatedRoutes from "./components/user/staff/AnimatedRoutes";
 
 export function App() {
   return (
@@ -63,6 +64,8 @@ export function App() {
           <Route path="admin/groups/update/:id" element={<UpdateGroup />}></Route>
           <Route path="/student/createGroup" element={<CreateGroup />}></Route>
         </Routes>
+
+        <AnimatedRoutes/>
       </BrowserRouter>
 
       {/* <Footer /> */}
