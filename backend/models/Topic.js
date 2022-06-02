@@ -7,7 +7,21 @@ const topicSchema = mongoose.Schema(
       required: true,
       trim: true
     },
-    description: {
+    groupName: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    submittedBy: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    group: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Group'
+    },
+    status: {
       type: String,
       required: true,
       trim: true

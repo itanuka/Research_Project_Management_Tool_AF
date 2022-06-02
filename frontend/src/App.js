@@ -29,7 +29,7 @@ import GroupHome from './components/user/student/GroupHome'
 
 //tharusha
 import React from 'react';
-import AddTopic from './components/user/student/AddTopic';
+import Topic from './components/user/student/topic/Topic';
 import TopicList from './components/user/staff/TopicList';
 import AddTemplate from "./components/admin/AddTemplate";
 
@@ -72,12 +72,12 @@ export function App() {
           <Route path="admin/groups/update/:id" element={<UpdateGroup />}></Route>
           <Route path="/student/createGroup" element={<CreateGroup />}></Route>
           <Route path="/student/group" element={<GroupHome />}></Route>
-          <Route path="/student/group/topic" element={<AddTopic />}></Route>
+          <Route path="/student/group/topic" element={<Topic />}></Route>
 
           {/* tharusha */}
           <Route path="/list" element={<TopicList />}></Route>
-          <Route path="/addtemplate" element={<AddTemplate/>}></Route>
-          
+          <Route path="/addtemplate" element={<AddTemplate />}></Route>
+
         </Routes>
 
         <AnimatedRoutes />

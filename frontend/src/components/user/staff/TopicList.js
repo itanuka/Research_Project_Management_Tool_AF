@@ -44,6 +44,38 @@ const TopicList = () => {
     }
   };
 
+  const acceptTopic = async (id) => {
+    try {
+      const requestBody = {
+        status: "Accepted"
+      };
+
+      await axios.patch(`http://localhost:4000/changeStatus/${id}`, requestBody);
+      alert("Topic status is changed to Accepted");
+      window.location = "/list"
+
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  const rejectTopic = async (id) => {
+    try {
+      const requestBody = {
+        status: "Rejected"
+      };
+
+      await axios.patch(`http://localhost:4000/changeStatus/${id}`, requestBody);
+      alert("Topic status is changed to Rejected");
+      window.location = "/list"
+
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+
+
   return (
 
     <div>
@@ -51,7 +83,7 @@ const TopicList = () => {
       <div className='row'>
         <div className='col-2'>
           {/*  panel member sidebar */}
-          <PanelMemberSideBar/>
+          <PanelMemberSideBar />
         </div>
         <div className='col-10'>
 
@@ -64,11 +96,11 @@ const TopicList = () => {
 
             <table className='table mt-5 container'>
               <thead>
+                <th>Title</th>
                 <th>Group Name</th>
-                <th>Topic Title</th>
                 <th>Submitted By</th>
-                <th>Download File</th>
                 <th>Status</th>
+                <th>Download File</th>
                 <th>Accept</th>
                 <th>Reject</th>
               </thead>
@@ -78,8 +110,10 @@ const TopicList = () => {
                   return (
                     <tr>
                       <td>{item.title}</td>
-                      <td>{item.description}</td>
-                      <td></td>
+                      <td>{item.groupName}</td>
+                      <td>{item.submittedBy}</td>
+                      <td>{item.status}</td>
+
 
                       <td> <a href="#/" style={{ textDecoration: "none" }} onClick={() =>
                         downloadFile(item._id, item.file_path, item.file_mimetype)
@@ -87,13 +121,16 @@ const TopicList = () => {
                       >
                         Download
                       </a></td>
-                      <td></td>
                       <td>
 
-                        <button className='btn btn-success p-1'>Accept</button>
+                        <button onClick={() =>
+                          acceptTopic(item._id)
+                        } className='btn btn-success p-1'>Accept</button>
                       </td>
                       <td>
-                        <button className='btn btn-danger p-1'>Reject</button>
+                        <button onClick={() =>
+                          rejectTopic(item._id)
+                        } className='btn btn-danger p-1'>Reject</button>
                       </td>
                     </tr>
                   )
@@ -101,7 +138,7 @@ const TopicList = () => {
               </tbody>
             </table>
 
-           
+
           </div>
 
         </div>
