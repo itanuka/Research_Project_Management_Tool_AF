@@ -8,6 +8,7 @@ import GroupPage from "./GroupPage";
 
 import { AnimatePresence } from "framer-motion"
 import ChatForum from "./ChatForum";
+import Unauthorized from "../Unauthorized";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -20,6 +21,7 @@ function AnimatedRoutes() {
         <Route path="/co_supervisor_requests" element={<RequestListCoSupervisor />}/>
         <Route path="/group_home" element={<GroupPage />}/>
         <Route path="/chat_forum" element={<ChatForum/>}/>
+        <Route path="/unauthorized" element={<Unauthorized/>}/>
       </Routes>
     </AnimatePresence>
   );

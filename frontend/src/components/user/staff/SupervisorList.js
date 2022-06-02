@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 function SupervisorList() {
+    let navigate = useNavigate()
     
     const [staff, setStaff] = useState([])
     const [supervisors, setSupervisors] = useState([])
@@ -20,6 +22,16 @@ function SupervisorList() {
             staff.filter((member)=>member.type==="supervisor")
         )
     }//end of getSupervisors function
+
+    //checking whether the user is logged in
+    useEffect(()=>{
+        try {
+            const jwt = localStorage.getItem("token");
+            if(!jwt)
+                navigate('/unauthorized')
+        } catch (error) {
+        }
+    }, [])
         
     useEffect(()=>{
         getSupervisors()

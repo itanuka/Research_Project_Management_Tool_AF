@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from "framer-motion"
 import { Link, useNavigate } from 'react-router-dom'
-
+import { useNavigate } from "react-router-dom"
 
 function GroupPage() {
   let navigate = useNavigate()
+
+  //checking whether the user is logged in
+  useEffect(()=>{
+    try {
+        const jwt = localStorage.getItem("token");
+        if(!jwt)
+            navigate('/unauthorized')
+    } catch (error) {
+    }
+}, [])
+
   return (
     <motion.div
     initial={{  y:250}}
