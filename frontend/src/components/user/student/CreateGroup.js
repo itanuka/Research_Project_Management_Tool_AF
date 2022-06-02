@@ -45,7 +45,8 @@ function CreateGroup() {
 
     Swal.fire("Registration Succesfull!", "Click ok to Continue", "success");
 
-    navigate("/student");
+    localStorage.clear();
+    window.location = "/"
 
     setGroupName("");
     setFirstMemberID("");

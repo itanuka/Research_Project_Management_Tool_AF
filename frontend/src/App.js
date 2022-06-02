@@ -25,6 +25,7 @@ import PanelMemberHome from "./components/user/staff/PanelMemberHome";
 import ViewGroups from './components/admin/ViewGroups'
 import UpdateGroup from './components/admin/UpdateGroup'
 import CreateGroup from './components/user/student/CreateGroup'
+import GroupHome from './components/user/student/GroupHome'
 
 //tharusha
 import React from 'react';
@@ -69,14 +70,15 @@ export function App() {
           <Route path="/admin/groups" element={<ViewGroups />}></Route>
           <Route path="admin/groups/update/:id" element={<UpdateGroup />}></Route>
           <Route path="/student/createGroup" element={<CreateGroup />}></Route>
+          <Route path="/student/group" element={<GroupHome />}></Route>
+          <Route path="/student/group/topic" element={<AddTopic />}></Route>
 
-           {/* tharusha */}
-          <Route path="/fileupload" element={<AddTopic/>}></Route>
-          <Route path="/list" element={<TopicList/>}></Route>
+          {/* tharusha */}
+          <Route path="/list" element={<TopicList />}></Route>
 
         </Routes>
 
-        <AnimatedRoutes/>
+        <AnimatedRoutes />
       </BrowserRouter>
 
       {/* <Footer /> */}
