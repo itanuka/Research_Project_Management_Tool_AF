@@ -107,7 +107,16 @@ exports.login = catchAsyncErrors(async (req, res) => {
 
       var userObectIDConverted = mongoose.Types.ObjectId(userObectID);
 
-      const group = await Group.findOne({ firstMember: userObectIDConverted }, { secondMember: userObectIDConverted }).select('groupName');;
+      let group = await Group.findOne({ firstMember: userObectIDConverted }).select('groupName');
+      if (!group) {
+        group = await Group.findOne({ secondMember: userObectIDConverted }).select('groupName');
+      }
+      if (!group) {
+        group = await Group.findOne({ thirdMember: userObectIDConverted }).select('groupName');
+      }
+      if (!group) {
+        group = await Group.findOne({ fourthMember: userObectIDConverted }).select('groupName');
+      }
       if (group) {
         groupID = group._id.toString();
         groupName = group.groupName;

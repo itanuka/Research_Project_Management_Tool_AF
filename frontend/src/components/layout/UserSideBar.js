@@ -29,7 +29,7 @@ export default function UserSideBar() {
 
                             <li>
                                 {/* <a href="#"><i class="fas fa-clipboard-list"></i> Templates</a> */}
-                                <a href='/fileupload'><i class="fa-solid fa-file-circle-plus"></i>Topic Submition</a>
+                                <a href='/student/group/topic'><i class="fa-solid fa-file-circle-plus"></i>Topic Submition</a>
                             </li>
 
                             {/* <li>
