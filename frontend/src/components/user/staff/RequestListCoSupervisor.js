@@ -44,12 +44,24 @@ function RequestListCoSupervisor() {
                             <motion.button className='btn btn-success px-4'
                             initial={{backgroundColor:'white', transitionDuration:"3s"}}
                             animate={{backgroundColor:'#181'}}
+                            whileHover={{
+                                scale: 1.1,
+                                textShadow: "0px 0px 8px rgb(100, 255, 100)",
+                                boxShadow: "0px 0px 8px rgb(200, 255, 200)"
+                            }}
+                            transition={{type: 'spring', stiffness: 500}}
                             > Accept </motion.button>
                         </td>
                         <td className='align-middle'> 
                             <motion.button className='btn btn-danger px-4'
                                 initial={{backgroundColor:'white', transitionDuration:"3s"}}
                                 animate={{backgroundColor:'#811'}}
+                                whileHover={{
+                                    scale: 1.1,
+                                    textShadow: "0px 0px 8px rgb(255, 100, 100)",
+                                    boxShadow: "0px 0px 8px rgb(255, 200, 200)"
+                                }}
+                                transition={{type: 'spring', stiffness: 500}}
                             > Reject </motion.button>
                         </td>
                     </tr>
