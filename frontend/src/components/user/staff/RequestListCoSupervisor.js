@@ -9,13 +9,20 @@ function RequestListCoSupervisor() {
 
     // IMPORTANT --> change the url (given url is strictly for demonstration purposes)
     async function getRequests() {
-        axios.get("http://localhost:4000/api/v1/requests/getRequestByStaffId/6291df9650646990e2ccbdc4")
-        .then(res => setRequests(res.data))
+        await axios.get("http://localhost:4000/api/v1/requests/getRequestByStaffId/6291df9650646990e2ccbdc4")
+        .then(res => res.data.map(info=>{
+            axios.get(`http://localhost:4000/api/v1/groups/get/${info.group}`)
+            .then(res=>{
+                groupName = res.data.groupName
+                co_supervisor = res.data.co_supervisor
+                requests.push({groupName, co_supervisor})
+            })
+        }))
     }
 
     useEffect(()=>{
         getRequests()
-    }, [])
+    }, [requests])
 
   return (
     <motion.div
@@ -39,17 +46,29 @@ function RequestListCoSupervisor() {
                     <tr key={request}>
                         <td colSpan='2' className='align-middle col-2'> {++requestNumber} </td>
                         <td className='align-middle col-2'> {request.group} </td>
-                        <td className='align-middle'>  </td>
+                        <td className='align-middle'> {request.co_supervisor} </td>
                         <td className='align-middle'> 
                             <motion.button className='btn btn-success px-4'
                             initial={{backgroundColor:'white', transitionDuration:"3s"}}
                             animate={{backgroundColor:'#181'}}
+                            whileHover={{
+                                scale: 1.1,
+                                textShadow: "0px 0px 8px rgb(100, 255, 100)",
+                                boxShadow: "0px 0px 8px rgb(200, 255, 200)"
+                            }}
+                            transition={{type: 'spring', stiffness: 500}}
                             > Accept </motion.button>
                         </td>
                         <td className='align-middle'> 
                             <motion.button className='btn btn-danger px-4'
                                 initial={{backgroundColor:'white', transitionDuration:"3s"}}
                                 animate={{backgroundColor:'#811'}}
+                                whileHover={{
+                                    scale: 1.1,
+                                    textShadow: "0px 0px 8px rgb(255, 100, 100)",
+                                    boxShadow: "0px 0px 8px rgb(255, 200, 200)"
+                                }}
+                                transition={{type: 'spring', stiffness: 500}}
                             > Reject </motion.button>
                         </td>
                     </tr>
