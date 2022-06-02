@@ -36,7 +36,7 @@ export default function adminSideBar() {
                             </li>
 
                             <li>
-                                <a href="#"><i class="fas fa-clipboard-list"></i> Templates</a>
+                                <a href="addtemplate"><i class="fas fa-clipboard-list"></i> Templates</a>
                             </li>
 
                             <li>

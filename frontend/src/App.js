@@ -31,6 +31,7 @@ import GroupHome from './components/user/student/GroupHome'
 import React from 'react';
 import AddTopic from './components/user/student/AddTopic';
 import TopicList from './components/user/staff/TopicList';
+import AddTemplate from "./components/admin/AddTemplate";
 
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
@@ -75,7 +76,8 @@ export function App() {
 
           {/* tharusha */}
           <Route path="/list" element={<TopicList />}></Route>
-
+          <Route path="/addtemplate" element={<AddTemplate/>}></Route>
+          
         </Routes>
 
         <AnimatedRoutes />

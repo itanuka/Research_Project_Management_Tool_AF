@@ -17,6 +17,7 @@ const StaffRouter = require("./routes/staff");
 const GroupRouter = require("./routes/group");
 const studentRequestsRouter = require("./routes/studentRequests");
 const topicRoute = require('./routes/topic');
+const templateRoute = require('./routes/template')
 
 app.use("/api/v1/students", StudentRouter);
 app.use("/api/v1/staff", StaffRouter);
@@ -26,10 +27,14 @@ app.use("/api/v1/requests", studentRequestsRouter);
 
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(topicRoute);
+app.use(templateRoute);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
   });
 
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+  });
 
 module.exports = app;
