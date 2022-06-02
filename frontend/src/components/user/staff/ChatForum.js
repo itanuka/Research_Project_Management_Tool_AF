@@ -1,11 +1,37 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"
+import jwtDecode from 'jwt-decode'
 
 function ChatForum() {
   
+  let navigate = useNavigate()
+
   const [messageContent, setMessageContent] = useState("");
-  const groupId = "62941c183e69138335e09e72"
-  const name = "Student 1"
+  const [user, setUser] = useState({});
+
+  async function pageInitialization() {
+
+    try {
+        const jwt = localStorage.getItem("token");
+        setUser(jwtDecode(jwt));
+      } catch (error) {
+        navigate('/unauthorized')
+      }
+  }
+
+  useEffect(() => {
+    pageInitialization()
+  }, []);
+
+
+  const groupId = user.groupID
+  const userID = user.userID
+
+
+  console.log(groupId, userID)
+
+  const name = "" //use the userID to find the name
 
   async function postMessage() {
     await axios.post(`http://localhost:4000/api/v1/groups/newChatMessage/${groupId}`, {
