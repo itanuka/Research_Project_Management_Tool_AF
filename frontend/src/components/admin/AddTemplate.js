@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import '../style/styles.scss'
 import { useNavigate } from 'react-router-dom';
-import adminSideBar from '../layout/AdminSideBar'
+import AdminSideBar from '../layout/AdminSideBar'
 // import { API_URL } from '../../utils/constants';
 
 function AddTemplate(props) {
@@ -87,7 +87,7 @@ function AddTemplate(props) {
       <div className='row'>
         <div className='col-md-2'>
           {/*  StudentSideBar*/}
-          <adminSideBar/>
+          <AdminSideBar/>
         </div>
         <div className='col-md-10'>
           {/*  content*/}
