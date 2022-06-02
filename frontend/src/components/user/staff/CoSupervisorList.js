@@ -68,6 +68,12 @@ function CoSupervisorList() {
                                 <motion.button className='btn btn-primary px-4'
                                 initial={{backgroundColor:'white', transitionDuration:"3s"}}
                                 animate={{backgroundColor:'#015'}}
+                                whileHover={{
+                                    scale: 1.1,
+                                    textShadow: "0px 0px 8px rgb(100, 100, 255)",
+                                    boxShadow: "0px 0px 8px rgb(200, 200, 255)"
+                                }}
+                                transition={{type: 'spring', stiffness: 500}}
                                 > Request </motion.button>
                             </td>
                         </tr>)
