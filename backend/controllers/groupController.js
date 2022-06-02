@@ -250,7 +250,7 @@ exports.getChatMessages = async (req, res) => {
 /* @desc    delete a created chat message so that the members of the group are provided with the possibility of
 *           deleting a posted chat message should they feel the message was not necessary
 */
-// @route DELETE /api/v1/groups/newChatMessage
+// @route DELETE /api/v1/groups/deleteChatMessage/:id
 // @access private
 exports.deleteChatMessage = async (req, res) => {
     const id = req.params.id

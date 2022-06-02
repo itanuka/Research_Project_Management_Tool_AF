@@ -11,7 +11,7 @@ function ChatForum() {
     await axios.post(`http://localhost:4000/api/v1/groups/newChatMessage/${groupId}`, {
         groupId,
         name,
-        messageContent,
+        messageContent
     })
   }
 
