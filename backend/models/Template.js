@@ -12,6 +12,11 @@ const templateSchema = mongoose.Schema(
       required: true,
       trim: true
     },
+    template_deadline: {
+      type: String,
+      required: true,
+      trim: true
+    },
     file_path: {
       type: String,
       required: true
