@@ -24,7 +24,7 @@ function CoSupervisorList() {
 
     useEffect(()=>{
         getCoSupervisors()
-    }, [])
+    }, [coSupervisors])
 
     // search function
     const searchedCoSupervisors = coSupervisors.filter((coSupervisor) => {

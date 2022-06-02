@@ -6,24 +6,23 @@ function RequestListSupervisor() {
 
     const [requests, setRequests] = useState([])
 
+    // IMPORTANT --> change the url (given url is strictly for demonstration purposes)
     async function getRequests() {
-        axios.get("http://localhost:4000/api/v1/requests/getRequestByStaffId/6291df9650646990e2ccbdc4")
-        .then(res => setRequests(res.data))
+        await axios.get("http://localhost:4000/api/v1/requests/getRequestByStaffId/6291df9650646990e2ccbdc4")
+        .then(res => res.data.map(info=>{
+            axios.get(`http://localhost:4000/api/v1/groups/get/${info.group}`)
+            .then(res=>{
+                groupName = res.data.groupName
+                supervisor = res.data.supervisor
+                requests.push({groupName, supervisor})
+            })
+        }))
     }
 
-    // useEffect(()=>{
-    //     axios.get("http://localhost:4000/api/v1/requests/getRequestByStaffId/6291df9650646990e2ccbdc4")
-    //     .then(res => {
-    //         res.data.map(request=>{
-    //             axios.get(`http://localhost:4000/api/v1/groups/get/${request.group}`)
-    //             .then(res=>setRequests(res.data))
-    //         })
-    //     })
-    // }, [])
 
     useEffect(()=>{
         getRequests()
-    }, [])
+    }, [requests])
 
 
     let requestNumber = 0
@@ -49,7 +48,7 @@ function RequestListSupervisor() {
                 {requests.map(request=>(
                     <tr key={request._id}>
                         <td colSpan='2' className='align-middle col-2'> {++requestNumber} </td>
-                        <td className='align-middle col-2'> {request.group} </td>
+                        <td className='align-middle col-2'> {request.groupName} </td>
                         <td className='align-middle'>  </td>
                         <td className='align-middle'> 
                             <motion.button className='btn btn-success px-4'

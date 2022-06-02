@@ -23,7 +23,7 @@ function SupervisorList() {
         
     useEffect(()=>{
         getSupervisors()
-    }, [])
+    }, [supervisors])
         
     // search function
     const searchedSupervisors = supervisors.filter((supervisor) => {
