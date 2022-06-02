@@ -73,7 +73,7 @@ function StudentHome() {
 
               <div class="col mb-4">
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                  <div class="card-header text-center">Dummy</div>
+                  <div class="card-header text-center">ChangePassword</div>
                   <div class="card-body">
                     <a href="" className="custom-size"><i class="fa-solid fa-user-gear"></i></a>
                   </div>

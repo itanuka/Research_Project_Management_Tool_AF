@@ -13,6 +13,7 @@ import ViewStudents from "./components/admin/ViewStudents";
 import StudentHome from "./components/user/student/StudentHome";
 import ViewStudentProfile from "./components/user/student/ViewStudentProfile";
 import UpdateStudentProfile from "./components/user/student/UpdateStudentProfile";
+import UpdateStudentPassword from "./components/user/student/UpdateStudentPassword";
 
 import ViewStaff from "./components/admin/ViewStaff";
 import RegisterStaff from "./components/user/staff/RegisterStaff";
@@ -60,6 +61,7 @@ export function App() {
           <Route path="/student" element={<StudentHome />}></Route>
           <Route path="/students/view/:id" element={<ViewStudentProfile />}></Route>
           <Route path="/students/update/:id" element={<UpdateStudentProfile />}></Route>
+          <Route path="/student/changePassword" element={<UpdateStudentPassword />}></Route>
 
           <Route path="/registerStaff" element={<RegisterStaff />}></Route>
           <Route path="/supervisor" element={<SupervisorHome />}></Route>
