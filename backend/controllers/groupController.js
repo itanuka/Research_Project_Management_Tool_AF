@@ -199,12 +199,13 @@ exports.updateWithStaff = async (req, res) => {
 /** @desc   create new chat message that will be stored in 'chats' collection so that members of
  *          the group will have a method for communicating with each other through the system
  * */
-// @route POST /api/v1/groups/newChatMessage
+// @route POST /api/v1/groups/newChatMessage/:groupId
 // @access private
 
 exports.newChatMessage = async (req, res) => {
 
-    const { groupId, name, message } = req.body
+    const groupId = req.params.groupId
+    const { name, message } = req.body
 
     try {
         const newMessage = await ChatMessage.create({
