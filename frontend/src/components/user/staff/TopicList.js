@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import download from 'downloadjs';
 import axios from 'axios';
 // import { API_URL } from '../../utils/constants';
+import PanelMemberSideBar from "../../layout/PanelMemberSideBar";
 
 const TopicList = () => {
   const [filesList, setFilesList] = useState([]);
@@ -50,6 +51,7 @@ const TopicList = () => {
       <div className='row'>
         <div className='col-2'>
           {/*  panel member sidebar */}
+          <PanelMemberSideBar/>
         </div>
         <div className='col-10'>
 
@@ -99,43 +101,7 @@ const TopicList = () => {
               </tbody>
             </table>
 
-            {/* <table className="files-table">
-        <thead>
-          <tr>
-            <th>Group Name</th>
-            <th>Topic Title</th>
-            <th>Download File</th>
-            <th>Accept</th>
-            <th>Reject</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filesList.length > 0 ? (
-            filesList.map(
-              ({ _id, title, description, file_path, file_mimetype }) => (
-                <tr key={_id}>
-                  <td className="file-title">{title}</td>
-                  <td className="file-description">{description}</td>
-                  <td>
-                    <a href="#/" onClick={() =>
-                      downloadFile(_id, file_path, file_mimetype)
-                    }
-                    >
-                      Download
-                    </a>
-                  </td>
-                </tr>
-              )
-            )
-          ) : (
-            <tr>
-              <td colSpan={3} style={{ fontWeight: '300' }}>
-                No files found. Please add some.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table> */}
+           
           </div>
 
         </div>
