@@ -72,6 +72,7 @@ function AddAdmin() {
           <AdminSideBar />
         </div>
         <div className="col-10">
+        <div className="row" style={{ height: "50px" }}></div>
 
           <div class="container body">
             <div class="row mt-5 mb-5">
@@ -84,7 +85,7 @@ function AddAdmin() {
                     <form onSubmit={handleSubmit}>
 
                       <div class="form-group ">
-                        <label for="id_field">Id Number</label>
+                        <label for="adminId">Admin ID</label>
                         <input type="text"
                           class="form-control"
                           value={idNumber}

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../layout/Loader";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import AdminSideBar from "../../layout/AdminSideBar";
+import UserSideBar from "../../layout/UserSideBar";
 
 
 function UpdateSupervisorProfile() {
@@ -126,9 +126,10 @@ function UpdateSupervisorProfile() {
 
             <div className="row">
                 <div className="col-2">
-                    <AdminSideBar />
+                    <UserSideBar />
                 </div>
                 <div className="col-10">
+                    <div className="row" style={{ height: "10px" }}></div>
                     <div class="container">
 
                         <div class="row mt-5 mb-5">
@@ -137,7 +138,7 @@ function UpdateSupervisorProfile() {
 
                                 <div class="card ">
                                     <div class="card-body">
-                                        <h2 class="mb-4 text-center">Staff Member Details</h2>
+                                        <h2 class="mb-4 text-center">Update My Profile</h2>
 
                                         <form onSubmit={handleSubmit} encType="multipart/form-data">
 
@@ -150,7 +151,7 @@ function UpdateSupervisorProfile() {
                                                     />
                                                 </div>
                                                 <div class="col">
-                                                    <label for="inputIdNumber">ID Number</label>
+                                                    <label for="inputIdNumber">Staff ID</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={idNumber}
@@ -220,25 +221,8 @@ function UpdateSupervisorProfile() {
                                             </div>
 
                                             <div class="form-row mt-2">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputResearchInterest">Password</label>
-                                                    <input type="password"
-                                                        class="form-control"
-                                                        value={password}
-                                                        onChange={handleChangePassword}
-                                                    />
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputResearchInterest">Confirm Password</label>
-                                                    <input type="password"
-                                                        class="form-control"
-                                                        value={confirmPassword}
-                                                        onChange={handleChangeConfirmPassword}
-                                                    />
-                                                </div>
-
                                                 <div class="col">
-                                                    <label for="inputIdNumber">Email</label>
+                                                    <label for="inputEmail">Email</label>
                                                     <input type="email"
                                                         class="form-control"
                                                         value={email}
@@ -246,6 +230,27 @@ function UpdateSupervisorProfile() {
 
                                                     />
                                                 </div>
+                                            </div>
+
+                                            <div class="form-row mt-2">
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputPassword">Password</label>
+                                                    <input type="password"
+                                                        class="form-control"
+                                                        value={password}
+                                                        onChange={handleChangePassword}
+                                                    />
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputConfirmPassword">Confirm Password</label>
+                                                    <input type="password"
+                                                        class="form-control"
+                                                        value={confirmPassword}
+                                                        onChange={handleChangeConfirmPassword}
+                                                    />
+                                                </div>
+
+
                                             </div>
 
                                             <button type="submit" class="btn btn-primary mt-4"

@@ -20,6 +20,9 @@ function PanelMemberHome() {
   return (
     <div>
       <h1>PanelMemberHome{user.userID}</h1>
+      <h1>Not Required For at the moment</h1>
+      <button > <a href="/list">View Topics</a></button>
+      <button> View Presentations</button>
     </div>
   );
 }

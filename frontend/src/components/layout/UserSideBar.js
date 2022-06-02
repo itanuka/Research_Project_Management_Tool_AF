@@ -9,7 +9,7 @@ export default function UserSideBar() {
                     <nav id="sidebar">
                         <ul class="list-unstyled components">
                             <li>
-                                <a href="/admin-home"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                <a href="/student"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                             </li>
 
                             <li>
@@ -17,18 +17,19 @@ export default function UserSideBar() {
                                     class=" fas fa-users"></i> Users</a>
                                 <ul class="collapse list-unstyled" id="productSubmenu">
                                     <li>
-                                        <a href="/admin/staff"><i class="fa-solid fa-user"></i> Staff</a>
+                                        <a href=""><i class="fa-solid fa-user"></i> Staff</a>
                                     </li>
 
                                     <li>
                                         {/* <a href="#"><i class="fas fa-plus"></i> Create</a> */}
-                                        <a href="/admin/students"><i class="fa-solid fa-user-graduate"></i> Student</a>
+                                        <a href=""><i class="fa-solid fa-user-graduate"></i> Student</a>
                                     </li>
                                 </ul>
                             </li>
 
                             <li>
-                                <a href="#"><i class="fas fa-clipboard-list"></i> Templates</a>
+                                {/* <a href="#"><i class="fas fa-clipboard-list"></i> Templates</a> */}
+                                <a href='/fileupload'><i class="fa-solid fa-file-circle-plus"></i>Topic Submition</a>
                             </li>
 
                             {/* <li>

@@ -23,8 +23,13 @@ import UpdateSupervisorProfile from "./components/user/staff/UpdateSupervisorPro
 import PanelMemberHome from "./components/user/staff/PanelMemberHome";
 
 import ViewGroups from './components/admin/ViewGroups'
-import CreateGroup from './components/user/student/CreateGroup'
 import UpdateGroup from './components/admin/UpdateGroup'
+import CreateGroup from './components/user/student/CreateGroup'
+
+//tharusha
+import React from 'react';
+import AddTopic from './components/user/student/AddTopic';
+import TopicList from './components/user/staff/TopicList';
 
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
@@ -34,6 +39,7 @@ export function App() {
   return (
     <div>
       <style>{"body { background-color: #f1f3f0; }"}</style>
+      <style>{"body { padding: 0px 0px 0px 0px; }"}</style>
       <BrowserRouter>
         <Header />
 
@@ -57,12 +63,17 @@ export function App() {
           <Route path="/supervisor" element={<SupervisorHome />}></Route>
           <Route path="/staff/view/:id" element={<ViewSupervisorProfile />}></Route>
           <Route path="/staff/update/:id" element={<UpdateSupervisorProfile />}></Route>
-          
+
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
 
           <Route path="/admin/groups" element={<ViewGroups />}></Route>
           <Route path="admin/groups/update/:id" element={<UpdateGroup />}></Route>
           <Route path="/student/createGroup" element={<CreateGroup />}></Route>
+
+           {/* tharusha */}
+          <Route path="/fileupload" element={<AddTopic/>}></Route>
+          <Route path="/list" element={<TopicList/>}></Route>
+
         </Routes>
 
         <AnimatedRoutes/>

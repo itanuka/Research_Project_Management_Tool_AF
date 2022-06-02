@@ -71,6 +71,7 @@ function Login() {
 
   return (
     <div>
+      <div className="row" style={{height:"100px"}}></div>
 
       <div class="container body ">
         <div class="row mt-5 mb-5">
@@ -78,7 +79,7 @@ function Login() {
           <div class="col-md-6">
             <div class="card ">
               <div class="card-body">
-                <h2 class="mb-4">Sign In</h2>
+                <h2 class="mb-4 text-center">Sign In</h2>
 
                 <form onSubmit={loginUser}>
 
