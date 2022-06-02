@@ -7,6 +7,7 @@ import RequestListCoSupervisor from "./RequestListCoSupervisor";
 import GroupPage from "./GroupPage";
 
 import { AnimatePresence } from "framer-motion"
+import ChatForum from "./ChatForum";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function AnimatedRoutes() {
         <Route path="/supervisor_requests" element={<RequestListSupervisor />}/>
         <Route path="/co_supervisor_requests" element={<RequestListCoSupervisor />}/>
         <Route path="/group_home" element={<GroupPage />}/>
+        <Route path="/chat_forum" element={<ChatForum/>}/>
       </Routes>
     </AnimatePresence>
   );

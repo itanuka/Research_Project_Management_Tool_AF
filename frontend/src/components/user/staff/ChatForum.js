@@ -4,35 +4,36 @@ import React, { useEffect, useState } from "react";
 function ChatForum() {
   
   const [messageContent, setMessageContent] = useState("");
-  const groupId = ""
-  const name = ""
+  const groupId = "62941c183e69138335e09e72"
+  const name = "Student 1"
 
   async function postMessage() {
     await axios.post(`http://localhost:4000/api/v1/groups/newChatMessage/${groupId}`, {
-        groupId,
         name,
-        messageContent
+        message: messageContent
     })
   }
-
-  useEffect(() => {
-    postMessage()
-  }, [messageContent]);
 
   return (
     <div>
       <h2>Post new message</h2>
-      <div class="mb-3">
-        <textarea
+      <form class="mb-3"
+        onSubmit={()=>{
+          postMessage()
+        }}
+      >
+        <input
+          type="text"
           class="form-control"
           id="exampleFormControlTextarea1"
-          rows="3"
+          
           placeholder="Enter your message here"
           onChange={(e) => {
             setMessageContent(e.target.value);
           }}
-        ></textarea>
-      </div>
+        ></input>
+        <button> SEND </button>
+      </form>
     </div>
   );
 }
