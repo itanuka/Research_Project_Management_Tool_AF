@@ -33,6 +33,7 @@ import TopicList from './components/user/staff/TopicList';
 
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
+import AnimatedRoutes from "./components/user/staff/AnimatedRoutes";
 
 export function App() {
   return (
@@ -74,6 +75,8 @@ export function App() {
           <Route path="/list" element={<TopicList/>}></Route>
 
         </Routes>
+
+        <AnimatedRoutes/>
       </BrowserRouter>
 
       {/* <Footer /> */}
