@@ -1,3 +1,4 @@
+const ChatMessage = require("../models/ChatMessage.js");
 const { find } = require("../models/Group.js");
 let Group = require("../models/Group.js");
 const Student = require("../models/Student")
@@ -192,4 +193,75 @@ exports.updateWithStaff = async (req, res) => {
     }
 
     res.status(201).json(updateInfo)
+}
+
+
+/** @desc   create new chat message that will be stored in 'chats' collection so that members of
+ *          the group will have a method for communicating with each other through the system
+ * */
+// @route POST /api/v1/groups/newChatMessage
+// @access private
+
+exports.newChatMessage = async (req, res) => {
+
+    const { groupId, name, message } = req.body
+
+    try {
+        const newMessage = await ChatMessage.create({
+            groupId,
+            name,
+            message
+        })
+
+        if(newMessage)
+            res.status(201).json(newMessage)
+        
+    } catch (error) {
+        res.status(400).json({
+            error
+        })
+    }
+    
+
+}
+
+
+// @desc get posted chat messages by the group Id
+// @route GET /api/v1/groups/getChatMessages/:groupId
+// @access Private
+exports.getChatMessages = async (req, res) => {
+
+    const groupId = req.params.groupId
+
+    try {
+        const messages = await ChatMessage.find({groupId: groupId})
+        if(messages)
+            res.status(200).json(messages)
+    } catch (error) {
+        res.status(500).json({
+            ERR_CODE: error.code,
+            message: "Could not find chat messages for the requested group"
+        })
+    }
+}
+
+
+/* @desc    delete a created chat message so that the members of the group are provided with the possibility of
+*           deleting a posted chat message should they feel the message was not necessary
+*/
+// @route DELETE /api/v1/groups/newChatMessage
+// @access private
+exports.deleteChatMessage = async (req, res) => {
+    const id = req.params.id
+
+    try {
+        const deletionInfo = await ChatMessage.deleteOne({_id: id})
+        if(deletionInfo)
+            res.status(200).json(deletionInfo)
+    } catch (error) {
+        res.status(500).json({
+            ERR_CODE: error.code,
+            message: "Could not find the chat message"
+        })
+    }
 }
