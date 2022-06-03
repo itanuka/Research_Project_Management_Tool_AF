@@ -33,12 +33,12 @@ Router.post(
   upload.single('file'),
   async (req, res) => {
     try {
-      const { template_title, template_description, template_deadline } = req.body;
+      const { templateName, description, deadline } = req.body;
       const { path, mimetype } = req.file;
       const file = new Template({
-        template_title,
-        template_description,
-        template_deadline,
+        templateName,
+        description,
+        deadline,
         file_path: path,
         file_mimetype: mimetype
       });

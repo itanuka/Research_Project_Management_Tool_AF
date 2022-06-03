@@ -5,6 +5,7 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 import '../style/styles.scss'
 import { useNavigate } from 'react-router-dom';
 import AdminSideBar from '../layout/AdminSideBar'
+import Swal from "sweetalert2";
 // import { API_URL } from '../../utils/constants';
 
 function AddTemplate(props) {
@@ -12,9 +13,9 @@ function AddTemplate(props) {
   const [file, setFile] = useState(null); // state for storing actual image
   const [previewSrc, setPreviewSrc] = useState(''); // state for storing previewImage
   const [state, setState] = useState({
-    template_title: '',
-    template_description: '',
-    template_deadline: ''
+    templateName: '',
+    description: '',
+    deadline: ''
   });
   const [errorMsg, setErrorMsg] = useState('');
   const [isPreviewAvailable, setIsPreviewAvailable] = useState(false); // state to show preview only for images
@@ -52,14 +53,14 @@ function AddTemplate(props) {
     event.preventDefault();
 
     try {
-      const { template_title, template_description, template_deadline } = state;
-      if (template_title.trim() !== '' && template_description.trim() !== '' && template_deadline.trim() !== '') {
+      const { templateName, description, deadline } = state;
+      if (templateName.trim() !== '' && description.trim() !== '' && deadline.trim() !== '') {
         if (file) {
           const formData = new FormData();
           formData.append('file', file);
-          formData.append('template_title', template_title);
-          formData.append('template_description', template_description);
-          formData.append('template_deadline', template_deadline);
+          formData.append('templateName', templateName);
+          formData.append('description', description);
+          formData.append('deadline', deadline);
 
           setErrorMsg('');
           await axios.post('http://localhost:4000/upload/template', formData, {
@@ -67,14 +68,27 @@ function AddTemplate(props) {
               'Content-Type': 'multipart/form-data'
             }
           });
+          Swal.fire("Template Added..!!", "Click ok to Continue", "success");
           // props.history.push('/list');
           console.log('works fine to this point')
           navigate('/admin-home')
         } else {
-          setErrorMsg('Please select a file to add.');
+          //setErrorMsg('Please select a file to add.');
+          Swal.fire({
+            title: "Please select a file to add!!",
+            text: "Please put a file.",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
         }
       } else {
-        setErrorMsg('Please enter all the field values.');
+        //setErrorMsg('Please enter all the field values.');
+        Swal.fire({
+          title: "Please enter all the field values!!",
+          text: "Please enter the relevent details.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       }
     } catch (error) {
       error.response && setErrorMsg(error.response.data);
@@ -100,12 +114,12 @@ function AddTemplate(props) {
         <Row>
           <Col>
             <Form.Group controlId="title">
-            <label>Group Name</label>
+            <label>Template Name</label>
               <Form.Control
                 type="text"
-                name="template_title"
-                value={state.template_title || ''}
-                placeholder="Group Name"
+                name="templateName"
+                value={state.templateName || ''}
+                placeholder="template name"
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -117,9 +131,9 @@ function AddTemplate(props) {
             <label>Description</label>
               <Form.Control
                 type="text"
-                name="template_description"
-                value={state.template_description || ''}
-                placeholder="Topic Title"
+                name="description"
+                value={state.description || ''}
+                placeholder="description"
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -131,8 +145,8 @@ function AddTemplate(props) {
             <label>Deadline</label>
               <Form.Control
                 type="date"
-                name="template_deadline"
-                value={state.template_deadline || ''}
+                name="deadline"
+                value={state.deadline || ''}
                 placeholder="Topic Deadline"
                 onChange={handleInputChange}
               />
