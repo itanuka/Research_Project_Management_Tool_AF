@@ -35,14 +35,47 @@ function Login() {
 
 
       if (data.role === "student") {
-        window.location = "/student"
+        Swal.fire({
+          title: 'Login Successfully',
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500
+        }).then((value) =>{
+          Swal.fire(( window.location = "/student"));
+        });
+       
       } else if (data.role === "supervisor") {
-        navigate("/supervisor");
-        window.location = "/supervisor"
+        Swal.fire({
+          title: 'Login Successfully',
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500
+        }).then((value) =>{
+          Swal.fire(( window.location = "/supervisor"));
+        });
+        // navigate("/supervisor");
+        
       } else if (data.role === "admin") {
-        navigate("/admin-home");
+        Swal.fire({
+          title: 'Login Successfully',
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500
+        }).then((value) =>{
+          Swal.fire(( window.location = "/admin-home"));
+        });
+        
+        
       } else if (data.role === "panel_member") {
-        navigate("/panelMember");
+        Swal.fire({
+          title: 'Login Successfully',
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500
+        }).then((value) =>{
+          Swal.fire((  window.location = "/panelMember"));
+        });
+       
       } else {
         console.log("user type err");
       }

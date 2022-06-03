@@ -4,6 +4,7 @@ import Loader from "../../layout/Loader";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import UserSideBar from "../../layout/UserSideBar";
+import Swal from "sweetalert2";
 
 
 function UpdateSupervisorProfile() {
@@ -98,7 +99,17 @@ function UpdateSupervisorProfile() {
         setConfirmPassword("");
         setEmail("");
 
-        window.location = "/supervisor"
+
+        
+        Swal.fire({
+            title: 'Update Successfully',
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500
+          }).then((value) =>{
+            Swal.fire(( window.location = "/supervisor"));
+          });
+        
     };
 
     useEffect(() => {

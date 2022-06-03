@@ -4,6 +4,8 @@ import Loader from "../layout/Loader";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import AdminSideBar from "../layout/AdminSideBar";
+import Swal from "sweetalert2";
+
 
 
 function UpdateStudent() {
@@ -59,7 +61,14 @@ function UpdateStudent() {
         alert(err);
       });
 
-    navigate("/admin/students");
+      Swal.fire({
+        title: 'Update Successfully',
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500
+      })
+      navigate("/admin/students");
+    
 
     setStudentName("");
     setStudentID("");

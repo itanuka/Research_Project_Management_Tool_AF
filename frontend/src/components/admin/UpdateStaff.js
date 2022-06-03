@@ -5,6 +5,8 @@ import AdminSideBar from "../layout/AdminSideBar";
 
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 function UpdateStaff() {
   const [loading, setLoading] = useState(false);
@@ -78,7 +80,15 @@ function UpdateStaff() {
     setresearchInterest("");
     setEmail("");
 
+
+    Swal.fire({
+      title: 'Update Successfully',
+      icon: "success",
+      showConfirmButton: false,
+      timer: 1500
+    })
     navigate("/admin/staff");
+    
   };
 
   useEffect(() => {
