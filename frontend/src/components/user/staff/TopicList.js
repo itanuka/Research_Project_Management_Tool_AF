@@ -3,6 +3,7 @@ import download from 'downloadjs';
 import axios from 'axios';
 // import { API_URL } from '../../utils/constants';
 import PanelMemberSideBar from "../../layout/PanelMemberSideBar";
+import Swal from "sweetalert2";
 
 const TopicList = () => {
   const [filesList, setFilesList] = useState([]);
@@ -35,11 +36,15 @@ const TopicList = () => {
       });
       const split = path.split('/');
       const filename = split[split.length - 1];
+
+      Swal.fire("Topic file is Downloaded!!", "Click ok to Continue", "success");
       setErrorMsg('');
+
       return download(result.data, filename, mimetype);
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        setErrorMsg('Error while downloading file. Try again later');
+        //setErrorMsg('Error while downloading file. Try again later');
+        Swal.fire("Error while downloading file. Try again later!!", "Click ok to Continue", "success");
       }
     }
   };
