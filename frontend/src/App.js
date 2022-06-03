@@ -91,7 +91,7 @@ export function App() {
         <AnimatedRoutes />
       </BrowserRouter>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

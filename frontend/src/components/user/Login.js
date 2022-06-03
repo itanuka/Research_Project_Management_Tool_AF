@@ -73,7 +73,7 @@ function Login() {
     <div>
       <div className="row" style={{height:"100px"}}></div>
 
-      <div class="container body ">
+      <div class="container body min-vh-100">
         <div class="row mt-5 mb-5">
           <div class="col-md-3"></div>
           <div class="col-md-6">
