@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const { find } = require("../models/Group.js");
-let Group = require("../models/Group.js");
-const Student = require("../models/Student")
 const Topic = require("../models/Topic");
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors')
 
