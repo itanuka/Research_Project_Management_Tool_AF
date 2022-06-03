@@ -61,6 +61,20 @@ function Header() {
 
         }
 
+        if (user.role == "panel_member") {
+            axios
+                .get("http://localhost:4000/api/v1/staff/getStaffUsingUserID/" + user.userID)
+                .then((res) => {
+
+                    setId(res.data._id.toString());
+                })
+
+                .catch((err) => {
+                    console.log(err);
+                });
+
+        }
+
 
 
 
@@ -86,6 +100,11 @@ function Header() {
 
         if (user.role == "supervisor") {
             navigateLink = "/staff/view/" + id;
+            navigate(navigateLink);
+        }
+
+        if (user.role == "panel_member") {
+            navigateLink = "/staff/view/panelMember/" + id;
             navigate(navigateLink);
         }
 

@@ -17,11 +17,15 @@ import UpdateStudentPassword from "./components/user/student/UpdateStudentPasswo
 
 import ViewStaff from "./components/admin/ViewStaff";
 import RegisterStaff from "./components/user/staff/RegisterStaff";
+
 import SupervisorHome from "./components/user/staff/SupervisorHome";
 import ViewSupervisorProfile from "./components/user/staff/ViewSupervisorProfile";
 import UpdateSupervisorProfile from "./components/user/staff/UpdateSupervisorProfile";
 
+
 import PanelMemberHome from "./components/user/staff/PanelMemberHome";
+import ViewPanelMemberProfile from "./components/user/staff/ViewPanelMemberProfile";
+import UpdatePanelMemberProfile from "./components/user/staff/UpdatePanelMemberProfile";
 
 import ViewGroups from './components/admin/ViewGroups'
 import UpdateGroup from './components/admin/UpdateGroup'
@@ -69,6 +73,8 @@ export function App() {
           <Route path="/staff/update/:id" element={<UpdateSupervisorProfile />}></Route>
 
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
+          <Route path="/staff/view/panelMember/:id" element={<ViewPanelMemberProfile />}></Route>
+          <Route path="/staff/update/panelMember/:id" element={<UpdatePanelMemberProfile />}></Route>
 
           <Route path="/admin/groups" element={<ViewGroups />}></Route>
           <Route path="admin/groups/update/:id" element={<UpdateGroup />}></Route>
