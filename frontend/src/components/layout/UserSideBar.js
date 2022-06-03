@@ -32,6 +32,11 @@ export default function UserSideBar() {
                                 <a href='/student/group/topic'><i class="fa-solid fa-file-circle-plus"></i>Topic Submition</a>
                             </li>
 
+                            <li>
+                                {/* <a href="#"><i class="fas fa-clipboard-list"></i> Templates</a> */}
+                                <a href='/allocatepanelmemberslist'><i class="fa-solid fa-file-circle-plus"></i>Panel Allocation</a>
+                            </li>
+
                             {/* <li>
                                 <a href="/addAdmin"><i class="fas fa-plus"></i> Add New Admin</a>
                             </li> */}
