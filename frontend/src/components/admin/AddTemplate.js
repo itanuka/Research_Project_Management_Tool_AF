@@ -114,7 +114,7 @@ function AddTemplate(props) {
         <Row>
           <Col>
             <Form.Group controlId="title">
-            <label>Group Name</label>
+            <label>Template Name</label>
               <Form.Control
                 type="text"
                 name="template_title"
