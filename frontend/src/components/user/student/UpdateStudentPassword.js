@@ -24,6 +24,8 @@ export default function UpdateStudentPassword() {
                                                 <label for="newPassword">New Password</label>
                                                 <input type="password"
                                                     class="form-control"
+                                                    // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                                                    // title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                                     id="newPassword"
                                                     // value={userID}
                                                     name="newPassword"
