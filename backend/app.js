@@ -24,17 +24,18 @@ app.use("/api/v1/staff", StaffRouter);
 app.use("/api/v1/groups", GroupRouter);
 app.use("/api/v1/users", UserRouter);
 app.use("/api/v1/requests", studentRequestsRouter);
+app.use("/api/v1/topics", topicRoute);
 
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(topicRoute);
 app.use(templateRoute);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
-  });
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+});
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
-  });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+});
 
 module.exports = app;

@@ -155,31 +155,31 @@ exports.deleteGroup = async (req, res) => {
 
 exports.updateWithStaff = async (req, res) => {
     const groupId = req.params.id
-    
+
     const supervisor = req.body.supervisor
     const co_supervisor = req.body.co_supervisor
     const panel_member = req.body.panel_member
 
     let updateInfo
 
-    if(supervisor) {
-        updateInfo = await Group.updateOne({_id: groupId},
+    if (supervisor) {
+        updateInfo = await Group.updateOne({ _id: groupId },
             {
                 $set: {
                     supervisor: supervisor
                 }
             }
         )
-    } else if(co_supervisor) {
-        updateInfo = await Group.updateOne({_id: groupId},
+    } else if (co_supervisor) {
+        updateInfo = await Group.updateOne({ _id: groupId },
             {
                 $set: {
                     co_supervisor: co_supervisor
                 }
             }
         )
-    } else if(panel_member) {
-        updateInfo = await Group.updateOne({_id: groupId},
+    } else if (panel_member) {
+        updateInfo = await Group.updateOne({ _id: groupId },
             {
                 $set: {
                     panel_member: panel_member
@@ -214,15 +214,15 @@ exports.newChatMessage = async (req, res) => {
             message
         })
 
-        if(newMessage)
+        if (newMessage)
             res.status(201).json(newMessage)
-        
+
     } catch (error) {
         res.status(400).json({
             error
         })
     }
-    
+
 
 }
 
@@ -235,8 +235,8 @@ exports.getChatMessages = async (req, res) => {
     const groupId = req.params.groupId
 
     try {
-        const messages = await ChatMessage.find({groupId: groupId})
-        if(messages)
+        const messages = await ChatMessage.find({ groupId: groupId })
+        if (messages)
             res.status(200).json(messages)
     } catch (error) {
         res.status(500).json({
@@ -256,8 +256,8 @@ exports.deleteChatMessage = async (req, res) => {
     const id = req.params.id
 
     try {
-        const deletionInfo = await ChatMessage.deleteOne({_id: id})
-        if(deletionInfo)
+        const deletionInfo = await ChatMessage.deleteOne({ _id: id })
+        if (deletionInfo)
             res.status(200).json(deletionInfo)
     } catch (error) {
         res.status(500).json({

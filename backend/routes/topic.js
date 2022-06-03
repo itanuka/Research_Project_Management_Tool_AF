@@ -2,7 +2,13 @@ const path = require('path');
 const express = require('express');
 const multer = require('multer');
 const Topic = require('../models/Topic');
+const Group = require('../models/Group');
 const Router = express.Router();
+
+const {
+  getAllTopics,
+  getTopicUsingGroupID
+} = require('../controllers/topicController');
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -17,10 +23,10 @@ const upload = multer({
     fileSize: 100000000 // max file size 1MB = 1000000 bytes
   },
   fileFilter(req, file, cb) {
-    if (!file.originalname.match(/\.(jpeg|jpg|png|pdf|doc|docx|xlsx|xls)$/)) {
+    if (!file.originalname.match(/\.(jpeg|jpg|png|pdf|doc|docx|xlsx|xls|txt)$/)) {
       return cb(
         new Error(
-          'only upload files with jpg, jpeg, png, pdf, doc, docx, xslx, xls format.'
+          'only upload files with jpg, jpeg, png, pdf, doc, docx, xslx, xls, txt format.'
         )
       );
     }
@@ -33,11 +39,16 @@ Router.post(
   upload.single('file'),
   async (req, res) => {
     try {
-      const { title, description } = req.body;
+      const { title, groupName, submittedBy, groupID, status } = req.body;
       const { path, mimetype } = req.file;
+
+      const group = await Group.findById(groupID);
       const file = new Topic({
         title,
-        description,
+        groupName,
+        submittedBy,
+        group,
+        status,
         file_path: path,
         file_mimetype: mimetype
       });
@@ -77,5 +88,19 @@ Router.get('/download/:id', async (req, res) => {
     res.status(400).send('Error while downloading file. Try again later.');
   }
 });
+
+Router.patch('/changeStatus/:id', async (req, res) => {
+  try {
+    const topic = await Topic.findById(req.params.id);
+    Object.assign(topic, req.body)
+    topic.save();
+    res.send(topic);
+  } catch (error) {
+    res.status(404).send({ error: "Topic is not found" });
+  }
+});
+
+Router.route("/").get(getAllTopics);
+Router.route("/getTopicUsingGroupID/:groupID").get(getTopicUsingGroupID);
 
 module.exports = Router;
