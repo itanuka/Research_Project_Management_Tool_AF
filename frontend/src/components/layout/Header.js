@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import jwtDecode from 'jwt-decode'
 import '../style/header.css'
+import Swal from 'sweetalert2';
+
 
 // import { useDispatch, useSelector } from 'react-redux'
 // import { useAlert } from 'react-alert'
@@ -116,7 +118,15 @@ function Header() {
 
     function logout() {
         localStorage.clear();
-        window.location = "/"
+        Swal.fire({
+            title: 'Logout Successfully',
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500
+          }).then((value) =>{
+            Swal.fire((  window.location = "/"));
+          });
+       
     }
     return (
         <Fragment>

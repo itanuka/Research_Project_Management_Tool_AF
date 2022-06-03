@@ -4,6 +4,7 @@ import Loader from "../../layout/Loader";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import UserSideBar from "../../layout/UserSideBar";
+import Swal from "sweetalert2";
 
 
 function UpdatePanelMemberProfile() {
@@ -98,7 +99,15 @@ function UpdatePanelMemberProfile() {
         setConfirmPassword("");
         setEmail("");
 
-        window.location = "/panelMember"
+        Swal.fire({
+            title: 'Update Successfully',
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500
+          }).then((value) =>{
+            Swal.fire((  window.location = "/panelMember"));
+          });
+       
     };
 
     useEffect(() => {
