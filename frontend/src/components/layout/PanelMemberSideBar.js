@@ -12,7 +12,7 @@ export default function PanelMemberSideBar() {
                                 <a href="/panelMember"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                             </li>
 
-                            <li>
+                            {/* <li>
                                 <a href="#productSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
                                     class=" fas fa-users"></i> Users</a>
                                 <ul class="collapse list-unstyled" id="productSubmenu">
@@ -21,11 +21,11 @@ export default function PanelMemberSideBar() {
                                     </li>
 
                                     <li>
-                                        {/* <a href="#"><i class="fas fa-plus"></i> Create</a> */}
+                                        
                                         <a href=""><i class="fa-solid fa-user-graduate"></i> Student</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> */}
 
                             <li>
                                 {/* <a href="#"><i class="fas fa-clipboard-list"></i> Templates</a> */}

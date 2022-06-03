@@ -147,15 +147,7 @@ function UpdateStudent() {
                             <option value={"Other"}> Other</option>
 
                           </select>
-                          {/* <label for="inputDegree">Degree</label>
-                          <input type="text"
-                            class="form-control"
-                            value={degree}
-                            required
-                            onChange={(e) => {
-                              setDegree(e.target.value);
-                            }}
-                          /> */}
+                         
                         </div>
                         <div class="col">
 
@@ -173,15 +165,7 @@ function UpdateStudent() {
                             <option value={"Other"}> Other</option>
 
                           </select>
-                          {/* <label for="inputSpecializaion">Specialization</label>
-                          <input type="text"
-                            class="form-control"
-                            value={specialization}
-                            required
-                            onChange={(e) => {
-                              setSpecialization(e.target.value);
-                            }}
-                          /> */}
+                         
                         </div>
                       </div>
 
