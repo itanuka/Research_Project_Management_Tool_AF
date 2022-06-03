@@ -22,6 +22,14 @@ function UpdateStudentProfile() {
 
     const navigate = useNavigate();
 
+    const handleChangeDegree = (event) => {
+        setDegree(event.target.value);
+    };
+
+    const handleChangeSpecialization = (event) => {
+        setSpecialization(event.target.value);
+    };
+
     const role = "student";
 
     const handleSubmit = (e) => {
@@ -87,7 +95,7 @@ function UpdateStudentProfile() {
                     <UserSideBar />
                 </div>
                 <div className="col-10">
-                <div className="row" style={{ height: "60px" }}></div>
+                    <div className="row" style={{ height: "60px" }}></div>
                     <div class="container">
                         <div class="row mt-5 mb-5">
                             <div class="col-md-2"></div>
@@ -115,6 +123,8 @@ function UpdateStudentProfile() {
                                                     <label for="inputIdNumber">Student ID</label>
                                                     <input type="text"
                                                         class="form-control"
+                                                        // pattern="[E|I|B][N|T|M][0-9]{8}"
+                                                        // title="Enter Valid Student ID"
                                                         value={idNumber}
                                                         required
                                                         onChange={(e) => {
@@ -127,7 +137,24 @@ function UpdateStudentProfile() {
 
                                             <div class="form-row">
                                                 <div class="col">
-                                                    <label for="inputDegree">Degree</label>
+                                                    <label for="inputDegree">Select Degree</label>
+                                                    <select id="inputState"
+                                                        value={degree}
+                                                        onChange={handleChangeDegree}
+                                                        required
+                                                        class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <option value={"Software Enginnering"}>Software Engineering</option>
+                                                        <option value={"Information Technology"}>Information Technology</option>
+                                                        <option value={"Cyber Sequrity"}> Cyber Sequrity</option>
+                                                        <option value={"Data Science"}> Data Science</option>
+                                                        <option value={"Electrical & Electronic Engineering"}> Electrical & Electronic Engineering</option>
+                                                        <option value={"Civil Engineering"}> Civil Engineering</option>
+                                                        <option value={"Buisness Management"}> Buisness Management</option>
+                                                        <option value={"Other"}> Other</option>
+
+                                                    </select>
+                                                    {/* <label for="inputDegree">Degree</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={degree}
@@ -135,10 +162,24 @@ function UpdateStudentProfile() {
                                                         onChange={(e) => {
                                                             setDegree(e.target.value);
                                                         }}
-                                                    />
+                                                    /> */}
                                                 </div>
                                                 <div class="col">
-                                                    <label for="inputSpecializaion">Specialization</label>
+                                                    <label for="inputSpecialization">Select Specialization</label>
+                                                    <select id="inputState"
+                                                        value={specialization}
+                                                        onChange={handleChangeSpecialization}
+                                                        required
+                                                        class="form-control">
+                                                        <option selected>Choose...</option>
+                                                        <option value={"BSC (hons) in Information Technology"}>BSC (hons) in Information Technology</option>
+                                                        <option value={"BSC (Computing)"}>BSC (Computing)</option>
+                                                        <option value={"BSE ENG (hons)"}> BSE ENG (hons)</option>
+                                                        <option value={"BBA(hons)"}> BBA(hons)</option>
+                                                        <option value={"Other"}> Other</option>
+
+                                                    </select>
+                                                    {/* <label for="inputSpecializaion">Specialization</label>
                                                     <input type="text"
                                                         class="form-control"
                                                         value={specialization}
@@ -146,15 +187,18 @@ function UpdateStudentProfile() {
                                                         onChange={(e) => {
                                                             setSpecialization(e.target.value);
                                                         }}
-                                                    />
+                                                    /> */}
                                                 </div>
                                             </div>
 
-                                            <div class = "form-row">
-                                            <div class="col">
+                                            <div class="form-row">
+                                                <div class="col">
                                                     <label for="inputEmail">Email</label>
                                                     <input type="email"
                                                         class="form-control"
+                                                        // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+                                                        // title="Enter Valid E-mail address"
+                                                        placeholder="example@gmail.com"
                                                         value={email}
                                                         required
                                                         onChange={(e) => {
@@ -169,6 +213,8 @@ function UpdateStudentProfile() {
                                                     <label for="inputPassword">Password</label>
                                                     <input type="password"
                                                         class="form-control"
+                                                        // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                                        // title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                                         value={password}
                                                         required
                                                         onChange={(e) => {
@@ -187,7 +233,7 @@ function UpdateStudentProfile() {
                                                 </div>
                                             </div>
 
-                                            
+
 
                                             <button type="submit" class="btn btn-primary mt-4"
                                                 style={{ width: '100%', height: '40px' }}

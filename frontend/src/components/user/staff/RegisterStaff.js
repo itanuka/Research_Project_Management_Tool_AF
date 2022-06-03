@@ -139,6 +139,8 @@ function RegisterStaff() {
                       <label for="inputIdNumber">Staff ID</label>
                       <input type="text"
                         class="form-control"
+                        // pattern="[E|I|B][N|T|M][0-9]{8}"
+                        // title="Enter Valid Staff ID"
                         value={idNumber}
                         required
                         onChange={(e) => {
@@ -159,8 +161,7 @@ function RegisterStaff() {
                         <option selected>Choose...</option>
                         <option value={"Faculty of Computing"}>Faculty of Computing</option>
                         <option value={"Faculty of Engineering"}>Faculty of Engineering</option>
-                        <option value={"Faculty of Buisness"}> Faculty of Buisness</option>
-                        <option value={"Faculty of Health and Science"}> Faculty of Health and Science</option>
+                        <option value={"Faculty of Buisness"}> Faculty of Buisness</option>                       
                       </select>
                     </div>
 
@@ -176,8 +177,8 @@ function RegisterStaff() {
                         <option value={"Cyber Sequrity"}>Cyber Sequrity</option>
                         <option value={"Information Technology"}>Information Technology</option>
                         <option value={"Data Science"}>Data Science</option>
-                        <option value={"Electrical & Electronic Engineeringy"}>Electrical & Electronic Engineeringy</option>
-                        <option value={"Civil Engineeringy"}>Civil Engineeringy</option>
+                        <option value={"Electrical & Electronic Engineeringy"}>Electrical & Electronic Engineering</option>
+                        <option value={"Civil Engineeringy"}>Civil Engineering</option>
                         <option value={"Buisness"}>Buisness</option>
                         <option value={"Other"}>Other</option>
                       </select>
@@ -219,6 +220,9 @@ function RegisterStaff() {
                       <label for="inputName">Email</label>
                       <input type="email"
                         class="form-control"
+                        // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+                        placeholder="example@gamil.com"
+                        // title="Enter Valid E-mail address"
                         value={email}
                         required
                         onChange={(e) => {
@@ -235,6 +239,8 @@ function RegisterStaff() {
                       <label for="inputPassword">Password</label>
                       <input type="password"
                         class="form-control"
+                        // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                        // title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                         value={password}
                         required
                         onChange={(e) => {
