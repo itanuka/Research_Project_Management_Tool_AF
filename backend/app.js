@@ -18,6 +18,7 @@ const GroupRouter = require("./routes/group");
 const studentRequestsRouter = require("./routes/studentRequests");
 const topicRoute = require('./routes/topic');
 const templateRoute = require('./routes/template')
+const allocatedPanelMembers = require('./routes/allocatePanelMembers')
 
 app.use("/api/v1/students", StudentRouter);
 app.use("/api/v1/staff", StaffRouter);
@@ -30,6 +31,11 @@ app.use("/api/v1/templates", templateRoute);
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(topicRoute);
 app.use(templateRoute);
+app.use(allocatedPanelMembers);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));

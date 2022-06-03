@@ -40,6 +40,7 @@ import React from 'react';
 import Topic from './components/user/student/topic/Topic';
 import TopicList from './components/user/staff/TopicList';
 import AddTemplate from "./components/admin/AddTemplate";
+import AllocatePanelMember from "./components/admin/AllocatePanelMember";
 
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
@@ -90,7 +91,7 @@ export function App() {
           <Route path="/addtemplate" element={<AddTemplate />}></Route>
 
           <Route path="ViewTopic" element={<ViewTopic />}></Route>
-
+          <Route path="/allocatepanelmembers" element={<AllocatePanelMember/>}></Route>
         </Routes>
 
         <AnimatedRoutes />
