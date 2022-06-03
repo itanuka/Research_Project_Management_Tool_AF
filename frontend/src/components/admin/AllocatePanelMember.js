@@ -113,12 +113,12 @@ function AllocatePanelMember(props) {
         <Row>
           <Col>
             <Form.Group controlId="title">
-            <label>Panel</label>
+            <label>Allocate Panel Name</label>
               <Form.Control
                 type="text"
                 name="allocatepnl_title"
                 value={state.allocatepnl_title || ''}
-                placeholder="Panel"
+                placeholder="allocate panel name"
                 onChange={handleInputChange}
               />
             </Form.Group>

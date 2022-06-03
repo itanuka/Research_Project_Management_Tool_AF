@@ -40,7 +40,7 @@ export default function adminSideBar() {
                             </li>
 
                             <li>
-                                <a href="/allocatepanelmembers"><i class="fas fa-clipboard-list"></i> Allocate PanelMembers</a>
+                                <a href="/allocatepanelmembers"><i class="fas fa-clipboard-list"></i> Allocate Panel Members</a>
                             </li>
 
                             <li>
