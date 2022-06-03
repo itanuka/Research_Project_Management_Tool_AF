@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 
 const templateSchema = mongoose.Schema(
   {
-    template_title: {
+    templateName: {
       type: String,
       required: true,
       trim: true
     },
-    template_description: {
+    description: {
       type: String,
       required: true,
       trim: true
     },
-    template_deadline: {
+    deadline: {
       type: String,
       required: true,
       trim: true
