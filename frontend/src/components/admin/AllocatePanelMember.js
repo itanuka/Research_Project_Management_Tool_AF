@@ -5,6 +5,7 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 import '../style/styles.scss'
 import { useNavigate } from 'react-router-dom';
 import AdminSideBar from '../layout/AdminSideBar'
+import Swal from "sweetalert2";
 // import { API_URL } from '../../utils/constants';
 
 function AllocatePanelMember(props) {
@@ -66,14 +67,27 @@ function AllocatePanelMember(props) {
               'Content-Type': 'multipart/form-data'
             }
           });
+          Swal.fire("Allocate Panel Added..!!", "Click ok to Continue", "success");
           // props.history.push('/list');
           console.log('works fine to this point')
           navigate('/admin-home')
         } else {
-          setErrorMsg('Please select a file to add.');
+         // setErrorMsg('Please select a file to add.');
+          Swal.fire({
+            title: "Please select a file to add!!",
+            text: "Please put a file.",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
         }
       } else {
-        setErrorMsg('Please enter all the field values.');
+        //setErrorMsg('Please enter all the field values.');
+        Swal.fire({
+          title: "Please enter all the field values!!",
+          text: "Please enter the relevent details.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       }
     } catch (error) {
       error.response && setErrorMsg(error.response.data);
