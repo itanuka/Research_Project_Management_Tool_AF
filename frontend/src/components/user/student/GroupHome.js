@@ -53,7 +53,7 @@ function GroupHome() {
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
                   <div class="card-header text-center">Download Templates</div>
                   <div class="card-body">
-                    <a href="/student/createGroup" className="custom-size"><i class="fa-solid fa-user-group"></i></a>
+                    <a href="/student/group/templates" className="custom-size"><i class="fa-solid fa-user-group"></i></a>
                   </div>
                 </div>
               </div>
