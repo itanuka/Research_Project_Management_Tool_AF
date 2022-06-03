@@ -114,7 +114,7 @@ function AddTemplate(props) {
         <Row>
           <Col>
             <Form.Group controlId="title">
-            <label>Template Name</label>
+            <label>Template Title</label>
               <Form.Control
                 type="text"
                 name="template_title"
@@ -133,7 +133,7 @@ function AddTemplate(props) {
                 type="text"
                 name="template_description"
                 value={state.template_description || ''}
-                placeholder="Topic Title"
+                placeholder="description"
                 onChange={handleInputChange}
               />
             </Form.Group>
