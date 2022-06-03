@@ -25,6 +25,7 @@ app.use("/api/v1/groups", GroupRouter);
 app.use("/api/v1/users", UserRouter);
 app.use("/api/v1/requests", studentRequestsRouter);
 app.use("/api/v1/topics", topicRoute);
+app.use("/api/v1/templates", templateRoute);
 
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(topicRoute);
