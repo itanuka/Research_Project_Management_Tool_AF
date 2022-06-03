@@ -22,6 +22,14 @@ function UpdateStudent() {
 
   const navigate = useNavigate();
 
+  const handleChangeDegree = (event) => {
+    setDegree(event.target.value);
+  };
+
+  const handleChangeSpecialization = (event) => {
+    setSpecialization(event.target.value);
+  };
+
   const role = "student";
 
   const handleSubmit = (e) => {
@@ -121,7 +129,25 @@ function UpdateStudent() {
 
                       <div class="form-row">
                         <div class="col">
-                          <label for="inputDegree">Degree</label>
+
+                          <label for="inputDegree">Select Degree</label>
+                          <select id="inputState"
+                            value={degree}
+                            onChange={handleChangeDegree}
+                            required
+                            class="form-control">
+                            <option selected>Choose...</option>
+                            <option value={"Software Enginnering"}>Software Engineering</option>
+                            <option value={"Information Technology"}>Information Technology</option>
+                            <option value={"Cyber Sequrity"}> Cyber Sequrity</option>
+                            <option value={"Data Science"}> Data Science</option>
+                            <option value={"Electrical & Electronic Engineering"}> Electrical & Electronic Engineering</option>
+                            <option value={"Civil Engineering"}> Civil Engineering</option>
+                            <option value={"Buisness Management"}> Buisness Management</option>
+                            <option value={"Other"}> Other</option>
+
+                          </select>
+                          {/* <label for="inputDegree">Degree</label>
                           <input type="text"
                             class="form-control"
                             value={degree}
@@ -129,10 +155,25 @@ function UpdateStudent() {
                             onChange={(e) => {
                               setDegree(e.target.value);
                             }}
-                          />
+                          /> */}
                         </div>
                         <div class="col">
-                          <label for="inputSpecializaion">Specialization</label>
+
+                          <label for="inputSpecialization">Select Specialization</label>
+                          <select id="inputState"
+                            value={specialization}
+                            onChange={handleChangeSpecialization}
+                            required
+                            class="form-control">
+                            <option selected>Choose...</option>
+                            <option value={"BSC (hons) in Information Technology"}>BSC (hons) in Information Technology</option>
+                            <option value={"BSC (Computing)"}>BSC (Computing)</option>
+                            <option value={"BSE ENG (hons)"}> BSE ENG (hons)</option>
+                            <option value={"BBA(hons)"}> BBA(hons)</option>
+                            <option value={"Other"}> Other</option>
+
+                          </select>
+                          {/* <label for="inputSpecializaion">Specialization</label>
                           <input type="text"
                             class="form-control"
                             value={specialization}
@@ -140,7 +181,7 @@ function UpdateStudent() {
                             onChange={(e) => {
                               setSpecialization(e.target.value);
                             }}
-                          />
+                          /> */}
                         </div>
                       </div>
 
