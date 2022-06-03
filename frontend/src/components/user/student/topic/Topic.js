@@ -6,212 +6,153 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 import '../../../style/styles.scss'
 import { useNavigate } from 'react-router-dom';
 import UserSideBar from '../../../layout/UserSideBar'
+import AddTopic from './AddTopic';
+import ViewTopic from './ViewTopic';
 // import { API_URL } from '../../utils/constants';
 
 function Topic(props) {
-
-    let navigate = useNavigate()
-    const [file, setFile] = useState(null); // state for storing actual image
-    const [previewSrc, setPreviewSrc] = useState(''); // state for storing previewImage
-    const [title, setTitle] = useState('');
-    const [groupName, setGroupName] = useState('');
-    const [submittedBy, setSubmittedBy] = useState('');
-    const [groupID, setGroupID] = useState('');
-    const [status, setStatus] = useState('Pending');
-
-    // const [state, setState] = useState({
-    //   title: '',
-    //   description: ''
-    // });
-    const [errorMsg, setErrorMsg] = useState('');
-    const [isPreviewAvailable, setIsPreviewAvailable] = useState(false); // state to show preview only for images
-    const dropRef = useRef(); // React ref for managing the hover state of droppable area
-
-    // const handleInputChange = (event) => {
-    //   setState({
-    //     ...state,
-    //     [event.target.name]: event.target.value
-    //   });
-    // };
+    const [user, setUser] = useState({});
+    const [topic, setTopic] = useState({});
 
     useEffect(() => {
 
         try {
             const jwt = localStorage.getItem("token");
-            const user = jwtDecode(jwt);
-            setGroupName(user.groupName);
-            setSubmittedBy(user.userID);
-            setGroupID(user.groupID)
-
+            setUser(jwtDecode(jwt));
         } catch (error) {
 
         }
     }, []);
+    useEffect(() => {
+        axios
+            .get("http://localhost:4000/api/v1/topics/getTopicUsingGroupID/" + user.groupID)
+            .then((res) => {
+                setTopic(res.data);
+            })
 
-    const onDrop = (files) => {
-        const [uploadedFile] = files;
-        setFile(uploadedFile);
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [user, topic]);
 
-        const fileReader = new FileReader();
-        fileReader.onload = () => {
-            setPreviewSrc(fileReader.result);
-        };
-        fileReader.readAsDataURL(uploadedFile);
-        setIsPreviewAvailable(uploadedFile.name.match(/\.(jpeg|jpg|png)$/));
-        dropRef.current.style.border = '2px dashed #e9ebeb';
-    };
 
-    const updateBorder = (dragState) => {
-        if (dragState === 'over') {
-            dropRef.current.style.border = '2px solid #000';
-        } else if (dragState === 'leave') {
-            dropRef.current.style.border = '2px dashed #e9ebeb';
-        }
-    };
-
-    const handleOnSubmit = async (event) => {
-        event.preventDefault();
-
-        try {
-            if (title.trim() !== '' && groupName.trim() !== '' && submittedBy.trim() !== '' && status.trim() !== '') {
-                if (file) {
-                    const formData = new FormData();
-                    formData.append('file', file);
-                    formData.append('title', title);
-                    formData.append('groupName', groupName);
-                    formData.append('submittedBy', submittedBy);
-                    formData.append('groupID', groupID);
-                    formData.append('status', status);
-
-                    setErrorMsg('');
-                    await axios.post('http://localhost:4000/upload', formData, {
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
-                        }
-                    });
-                    // props.history.push('/list');
-                    console.log('works fine to this point')
-                    navigate('/student')
-                } else {
-                    setErrorMsg('Please select a file to add.');
-                }
-            } else {
-                setErrorMsg('Please enter all the field values.');
-            }
-        } catch (error) {
-            error.response && setErrorMsg(error.response.data);
-        }
-    };
 
     console.log("Component is rendered")
 
-    return (
-        <React.Fragment>
+    if (!topic) {
+        return (
+            <React.Fragment>
 
-            <div className='row'>
-                <div className='col-md-2'>
-                    {/*  StudentSideBar*/}
-                    <UserSideBar />
-                </div>
-                <div className='col-md-10'>
-                    {/*  content*/}
-                    <div className="container">
-                        <div className="main-content">
-                            <Form className="search-form" onSubmit={handleOnSubmit}>
-                                {errorMsg && <p className="errorMsg">{errorMsg}</p>}
-                                <Row>
-                                    <Col>
-                                        <Form.Group controlId="title">
-                                            <Form.Control
-                                                type="text"
-                                                name="title"
-                                                value={title}
-                                                placeholder="Title"
-                                                onChange={(e) => {
-                                                    setTitle(e.target.value);
-                                                }}
-                                            />
-                                        </Form.Group>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <Form.Group controlId="title">
-                                            <Form.Control
-                                                type="text"
-                                                name="groupName"
-                                                value={groupName}
-                                                placeholder="Group Name"
-                                                onChange={(e) => {
-                                                    setGroupName(e.target.value);
-                                                }}
-                                                readOnly
-                                            />
-                                        </Form.Group>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <Form.Group controlId="title">
-                                            <Form.Control
-                                                type="text"
-                                                name="submittedBy"
-                                                value={submittedBy}
-                                                placeholder="Submitted By"
-                                                onChange={(e) => {
-                                                    setSubmittedBy(e.target.value);
-                                                }}
-                                                readOnly
-                                            />
-                                        </Form.Group>
-                                    </Col>
-                                </Row>
+                <div className='row'>
+                    <div className='col-md-2'>
+                        {/*  StudentSideBar*/}
+                        <UserSideBar />
+                    </div>
+                    <div className='col-md-10'>
+                        {/*  content*/}
+                        <div className="container">
+                            <div className="main-content">
 
-                                <div className="upload-section">
-                                    <Dropzone
-                                        onDrop={onDrop}
-                                        onDragEnter={() => updateBorder('over')}
-                                        onDragLeave={() => updateBorder('leave')}
-                                    >
-                                        {({ getRootProps, getInputProps }) => (
-                                            <div {...getRootProps({ className: 'drop-zone' })} ref={dropRef}>
-                                                <input {...getInputProps()} />
-                                                <p>Drag and drop a file OR click here to select a file</p>
-                                                {file && (
-                                                    <div>
-                                                        <strong>Selected file:</strong> {file.name}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        )}
-                                    </Dropzone>
-                                    {previewSrc ? (
-                                        isPreviewAvailable ? (
-                                            <div className="image-preview">
-                                                <img className="preview-image" src={previewSrc} alt="Preview" />
-                                            </div>
-                                        ) : (
-                                            <div className="preview-message">
-                                                <p>No preview available for this file</p>
-                                            </div>
-                                        )
-                                    ) : (
-                                        <div className="preview-message">
-                                            <p>Image preview will be shown here after selection</p>
-                                        </div>
-                                    )}
-                                </div>
-                                <Button variant="primary" type="submit">
-                                    Submit
-                                </Button>
-                            </Form>
+                                <AddTopic user={user} />
+                                {/* {topic ? <ViewTopic topic={topic} /> : <AddTopic user={user} />} */}
+                                {/* (topic && <ViewTopic topic={topic} />} */}
+
+
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </React.Fragment>
-    );
+            </React.Fragment>
+        );
+    }
+
+
+    if (topic.status == "Rejected") {
+        return (
+            <React.Fragment>
+
+                <div className='row'>
+                    <div className='col-md-2'>
+                        {/*  StudentSideBar*/}
+                        <UserSideBar />
+                    </div>
+                    <div className='col-md-10'>
+                        {/*  content*/}
+                        <div className="container">
+                            <div className="main-content">
+                                <h1>Your topic is rejected. Submit a new topic</h1>
+                                <ViewTopic topic={topic} />
+
+                                <h1>Submit a new topic</h1>
+                                <AddTopic user={user} />
+                                {/* {topic ? <ViewTopic topic={topic} /> : <AddTopic user={user} />} */}
+                                {/* (topic && <ViewTopic topic={topic} />} */}
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </React.Fragment>
+        );
+    }
+
+    else if (topic) {
+        return (
+            <React.Fragment>
+
+                <div className='row'>
+                    <div className='col-md-2'>
+                        {/*  StudentSideBar*/}
+                        <UserSideBar />
+                    </div>
+                    <div className='col-md-10'>
+                        {/*  content*/}
+                        <div className="container">
+                            <div className="main-content">
+                                {/* {topic ? <ViewTopic topic={topic} /> : <AddTopic user={user} />} */}
+                                {/* (topic && <ViewTopic topic={topic} />} */}
+                                <ViewTopic topic={topic} />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </React.Fragment>
+        );
+    }
+
+    else {
+        return (
+            <React.Fragment>
+
+                <div className='row'>
+                    <div className='col-md-2'>
+                        {/*  StudentSideBar*/}
+                        <UserSideBar />
+                    </div>
+                    <div className='col-md-10'>
+                        {/*  content*/}
+                        <div className="container">
+                            <div className="main-content">
+                                {/* {topic ? <ViewTopic topic={topic} /> : <AddTopic user={user} />} */}
+                                {/* (topic && <ViewTopic topic={topic} />} */}
+                                <AddTopic user={user} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </React.Fragment>
+        );
+    }
+
+
 };
 
 export default Topic;

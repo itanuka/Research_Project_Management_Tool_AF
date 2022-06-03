@@ -3,9 +3,9 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode'
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import '../../style/styles.scss'
+import '../../../style/styles.scss'
 import { useNavigate } from 'react-router-dom';
-import UserSideBar from '../../layout/UserSideBar'
+import UserSideBar from '../../../layout/UserSideBar'
 // import { API_URL } from '../../utils/constants';
 
 function AddTopic(props) {
@@ -16,7 +16,7 @@ function AddTopic(props) {
   const [groupName, setGroupName] = useState('');
   const [submittedBy, setSubmittedBy] = useState('');
   const [groupID, setGroupID] = useState('');
-  const [status, setStatus] = useState('Pending');
+  const [status, setStatus] = useState("Pending");
 
   // const [state, setState] = useState({
   //   title: '',
@@ -36,16 +36,16 @@ function AddTopic(props) {
   useEffect(() => {
 
     try {
-      const jwt = localStorage.getItem("token");
-      const user = jwtDecode(jwt);
-      setGroupName(user.groupName);
-      setSubmittedBy(user.userID);
-      setGroupID(user.groupID)
-
+      // const jwt = localStorage.getItem("token");
+      // const user = jwtDecode(jwt);
+      const user = props.user;
+      setGroupName(props.user.groupName);
+      setSubmittedBy(props.user.userID);
+      setGroupID(props.user.groupID)
     } catch (error) {
 
     }
-  }, []);
+  }, [props]);
 
   const onDrop = (files) => {
     const [uploadedFile] = files;
@@ -108,10 +108,6 @@ function AddTopic(props) {
     <React.Fragment>
 
       <div className='row'>
-        <div className='col-md-2'>
-          {/*  StudentSideBar*/}
-          <UserSideBar />
-        </div>
         <div className='col-md-10'>
           {/*  content*/}
           <div className="container">

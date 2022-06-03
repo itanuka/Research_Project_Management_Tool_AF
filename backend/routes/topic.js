@@ -5,6 +5,11 @@ const Topic = require('../models/Topic');
 const Group = require('../models/Group');
 const Router = express.Router();
 
+const {
+  getAllTopics,
+  getTopicUsingGroupID
+} = require('../controllers/topicController');
+
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, cb) {
@@ -94,5 +99,8 @@ Router.patch('/changeStatus/:id', async (req, res) => {
     res.status(404).send({ error: "Topic is not found" });
   }
 });
+
+Router.route("/").get(getAllTopics);
+Router.route("/getTopicUsingGroupID/:groupID").get(getTopicUsingGroupID);
 
 module.exports = Router;

@@ -27,6 +27,9 @@ import UpdateGroup from './components/admin/UpdateGroup'
 import CreateGroup from './components/user/student/CreateGroup'
 import GroupHome from './components/user/student/GroupHome'
 
+// This ViewTopic component is only for testing. Remove It. It should be in the Topic Component in Student
+import ViewTopic from "./components/user/student/topic/ViewTopic";
+
 //tharusha
 import React from 'react';
 import Topic from './components/user/student/topic/Topic';
@@ -77,6 +80,8 @@ export function App() {
           {/* tharusha */}
           <Route path="/list" element={<TopicList />}></Route>
           <Route path="/addtemplate" element={<AddTemplate />}></Route>
+
+          <Route path="ViewTopic" element={<ViewTopic />}></Route>
 
         </Routes>
 
