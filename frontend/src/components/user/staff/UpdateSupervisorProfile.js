@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../layout/Loader";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import UserSideBar from "../../layout/UserSideBar";
+import SupervisorSideBar from "../../layout/SupervisorSideBar";
 import Swal from "sweetalert2";
 
 
@@ -137,7 +137,7 @@ function UpdateSupervisorProfile() {
 
             <div className="row">
                 <div className="col-2">
-                    <UserSideBar />
+                    <SupervisorSideBar />
                 </div>
                 <div className="col-10">
                     <div className="row" style={{ height: "10px" }}></div>

@@ -1,12 +1,12 @@
 import React from 'react'
-import UserSideBar from '../../layout/UserSideBar'
+import SupervisorSideBar from '../../layout/SupervisorSideBar'
 
 export default function UpdateSupervisorPassword() {
     return (
         <div>
             <div className='row'>
                 <div className='col-2'>
-                    <UserSideBar />
+                    <SupervisorSideBar />
                 </div>
                 <div className='col-10'>
                     <div className="row" style={{ height: "80px" }}></div>
