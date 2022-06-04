@@ -31,7 +31,7 @@ function PanelMemberHome() {
 
       <div className="row">
         <div className="col-2">
-          <PanelMemberSideBar/>
+          <PanelMemberSideBar />
         </div>
         <div className="col-10">
           {/* Content */}
@@ -60,7 +60,7 @@ function PanelMemberHome() {
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
                   <div class="card-header text-center">Change Password</div>
                   <div class="card-body">
-                    <a href="" className="custom-size"><i class="fa-solid fa-user-gear"></i></a>
+                    <a href="/staff/panelMember/changePassword" className="custom-size"><i class="fa-solid fa-user-gear"></i></a>
                   </div>
                 </div>
               </div>

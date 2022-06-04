@@ -84,6 +84,29 @@ exports.deleteLoginMember2 = catchAsyncErrors(async (req, res) => {
 });
 
 
+// Change Password
+exports.changePassword = catchAsyncErrors(async (req, res) => {
+
+  let userID = req.params.userID;
+
+  const password = await bcrypt.hash(req.body.password, 10);
+  req.body.password = password;
+
+  const user = await User.findOne({ userID: userID });
+  Object.assign(user, req.body)
+  user.save();
+  res.send(user);
+
+  // User.deleteOne({ _id: userID }, (err, result) => {
+  //   if (err) {
+  //     res.status(500).json(err)
+  //   } else {
+  //     res.json(result)
+  //   }
+  // })
+
+});
+
 
 
 // LOGIN 
