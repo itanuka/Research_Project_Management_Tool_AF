@@ -33,6 +33,10 @@ import UpdateGroup from './components/admin/UpdateGroup'
 import CreateGroup from './components/user/student/CreateGroup'
 import GroupHome from './components/user/student/GroupHome'
 
+import TemplateList from "./components/user/student/template/TemplateList";
+import AddSubmission from "./components/user/student/submission/AddSubmission";
+import SubmissionList from "./components/user/student/submission/SubmissionList";
+
 // This ViewTopic component is only for testing. Remove It. It should be in the Topic Component in Student
 import ViewTopic from "./components/user/student/topic/ViewTopic";
 
@@ -42,10 +46,12 @@ import Topic from './components/user/student/topic/Topic';
 import TopicList from './components/user/staff/TopicList';
 import AddTemplate from "./components/admin/AddTemplate";
 import AllocatePanelMember from "./components/admin/AllocatePanelMember";
+import AllocatePanelmemberList from "./components/user/student/AllocatePanelmemberList";
 
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import AnimatedRoutes from "./components/user/staff/AnimatedRoutes";
+
 
 export function App() {
   return (
@@ -89,12 +95,17 @@ export function App() {
           <Route path="/student/group" element={<GroupHome />}></Route>
           <Route path="/student/group/topic" element={<Topic />}></Route>
 
+          <Route path="/student/group/templates" element={<TemplateList />}></Route>
+          <Route path="/student/group/submissions/:templateId" element={<AddSubmission />}></Route>
+          <Route path="/student/group/submissions/" element={<SubmissionList />}></Route>
+
           {/* tharusha */}
           <Route path="/list" element={<TopicList />}></Route>
           <Route path="/addtemplate" element={<AddTemplate />}></Route>
 
           <Route path="ViewTopic" element={<ViewTopic />}></Route>
           <Route path="/allocatepanelmembers" element={<AllocatePanelMember/>}></Route>
+          <Route path="/allocatepanelmemberslist" element={<AllocatePanelmemberList/>}></Route>
         </Routes>
 
         <AnimatedRoutes />

@@ -14,3 +14,19 @@ exports.getAllTemplates = async (req, res) => {
         res.status(400).send('Error while getting list of Topics. Try again later.');
     }
 };
+
+exports.getTemplate = catchAsyncErrors(async (req, res) => {
+    let templateId = req.params.id;
+
+    try {
+        Template.findOne({ _id: templateId }, (err, result) => {
+            if (err) {
+                res.status(500).json(err)
+            } else {
+                res.json(result)
+            }
+        })
+    } catch (error) {
+        console.error(error)
+    }
+});
