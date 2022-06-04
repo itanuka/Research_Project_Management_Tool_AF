@@ -6,7 +6,9 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 import '../../../style/styles.scss'
 import { useNavigate } from 'react-router-dom';
 import UserSideBar from '../../../layout/UserSideBar'
+import Swal from 'sweetalert2';
 // import { API_URL } from '../../utils/constants';
+
 
 function AddTopic(props) {
   let navigate = useNavigate()
@@ -90,6 +92,12 @@ function AddTopic(props) {
           });
           // props.history.push('/list');
           console.log('works fine to this point')
+          Swal.fire({
+            title: 'Topic Submit Successfully',
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500
+          })
           navigate('/student')
         } else {
           setErrorMsg('Please select a file to add.');
