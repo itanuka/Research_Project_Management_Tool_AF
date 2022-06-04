@@ -68,7 +68,7 @@ function ViewTopic(props) {
 
                                 <div class="card-body">
 
-                                    <h5 class="card-header text-center font-weight-bolder" >Card title</h5>
+                                    <h5 class="card-header text-center font-weight-bolder" >Research Project Topic</h5>
 
 
 
@@ -78,7 +78,7 @@ function ViewTopic(props) {
 
                                         <li>Group Name: {filesList.groupName}</li>
 
-                                        <li>Status: {filesList.submittedBy}</li>
+                                        <li>Status: {filesList.status}</li>
 
                                     </ul>
 

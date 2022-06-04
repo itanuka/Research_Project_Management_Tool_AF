@@ -123,6 +123,7 @@ function AddTopic(props) {
               <Form className="search-form" onSubmit={handleOnSubmit}>
                 {errorMsg && <p className="errorMsg">{errorMsg}</p>}
                 <Row>
+                  <h5>Title:</h5>
                   <Col>
                     <Form.Group controlId="title">
                       <Form.Control
@@ -138,6 +139,7 @@ function AddTopic(props) {
                   </Col>
                 </Row>
                 <Row>
+                  <h5>Group Name:</h5>
                   <Col>
                     <Form.Group controlId="title">
                       <Form.Control
@@ -154,6 +156,7 @@ function AddTopic(props) {
                   </Col>
                 </Row>
                 <Row>
+                  <h5>Submitted By:</h5>
                   <Col>
                     <Form.Group controlId="title">
                       <Form.Control

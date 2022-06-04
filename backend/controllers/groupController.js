@@ -12,6 +12,7 @@ exports.createGroup = async (req, res) => {
     const thirdMemberID = req.body.thirdMemberID;
     const fourthMemberID = req.body.fourthMemberID;
 
+
     let firstMember = await Student.findOne({ idNumber: firstMemberID });
     let secondMember = await Student.findOne({ idNumber: secondMemberID });
     let thirdMember = await Student.findOne({ idNumber: thirdMemberID });
