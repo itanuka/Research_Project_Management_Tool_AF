@@ -168,9 +168,7 @@ exports.login = catchAsyncErrors(async (req, res) => {
       userObectID: userObectID,
       userID: userID,
       role: user.role,
-      // role: result.role,
-      // userID: result.userID,
-      // id: result._id,
+     
     });
   }
   else {
@@ -178,44 +176,5 @@ exports.login = catchAsyncErrors(async (req, res) => {
   }
 
 
-  // User.findOne({ userID: req.body.userID },
-  //   async function (err, result) {
-
-  //     try {
-  //       if (!result) {
-  //         return res.status(500).json(err);
-  //       } else {
-  //         console.log(result);
-
-  //         const isPasswordValid = await bcrypt.compare(
-  //           req.body.password,
-  //           result.password
-  //         );
-
-  //         if (isPasswordValid) {
-  //           const token = jwt.sign(
-  //             {
-  //               userID: result.userID,
-  //               role: result.role,
-  //             },
-  //             process.env.JWT_SECRET
-  //           );
-  //           return res.json({
-  //             status: "ok",
-  //             user: token,
-  //             role: result.role,
-  //             userID: result.userID,
-  //             id: result._id,
-  //           });
-  //         } else {
-  //           return res.json({ status: "PASSWORD INVALID", user: false });
-  //         }
-  //       }
-  //     } catch (err) {
-  //       console.error(err)
-  //     }
-
-  //   }
-  // );
 
 });

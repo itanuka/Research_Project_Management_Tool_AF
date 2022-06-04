@@ -130,16 +130,6 @@ function AddAdmin() {
         </div>
       </div>
 
-
-
-
-
-
-
-
-
-
-
     </div>
   );
 }

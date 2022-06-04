@@ -25,7 +25,7 @@ export default function adminSideBar() {
                                     </li>
 
                                     <li>
-                                        {/* <a href="#"><i class="fas fa-plus"></i> Create</a> */}
+                                       
                                         <a href="/admin/students"><i class="fa-solid fa-user-graduate"></i> Student</a>
                                     </li>
                                 </ul>

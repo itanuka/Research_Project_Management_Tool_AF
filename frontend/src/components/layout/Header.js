@@ -9,13 +9,7 @@ import '../style/header.css'
 import Swal from 'sweetalert2';
 
 
-// import { useDispatch, useSelector } from 'react-redux'
-// import { useAlert } from 'react-alert'
 
-// import { logout } from '../../actions/userActions'
-
-
-// import '../style/header.css'
 
 function Header() {
 
@@ -78,19 +72,6 @@ function Header() {
         }
 
 
-
-
-
-
-        // console.log(navigateLink);
-
-        // navigate(`update/${member._id}`)
-
-        // const link = id;
-
-        // console.log(link);
-
-        // window.location = link
 
     };
 
