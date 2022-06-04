@@ -59,16 +59,6 @@ export default function ViewPanelMemberProfile() {
             });
     }, []);
 
-
-
-
-
-
-
-
-
-
-
     return (
         <div>
             <div className="row">
