@@ -40,7 +40,6 @@ function RegisterStudent() {
         idNumber,
         degree,
         specialization,
-        password,
         email
       };
       const userID = idNumber;
@@ -159,7 +158,7 @@ function RegisterStudent() {
                         <option value={"Other"}> Other</option>
 
                       </select>
-                     
+
                     </div>
                     <div class="col">
                       <label for="inputSpecialization">Select Specialization</label>
@@ -177,7 +176,7 @@ function RegisterStudent() {
 
                       </select>
 
-                     
+
                     </div>
                   </div>
 

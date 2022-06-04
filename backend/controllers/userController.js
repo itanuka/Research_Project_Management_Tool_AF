@@ -168,7 +168,7 @@ exports.login = catchAsyncErrors(async (req, res) => {
       userObectID: userObectID,
       userID: userID,
       role: user.role,
-     
+
     });
   }
   else {
