@@ -58,7 +58,7 @@ function RegisterStaff() {
 
       axios
         .post(
-          "http://localhost:4000/api/v1/staff/registerStaffMember",
+          "https://af-group-project.herokuapp.com/v1/staff/registerStaffMember",
           newStaff
         )
         .then((res) => {
@@ -73,7 +73,7 @@ function RegisterStaff() {
         });
 
       axios
-        .post("http://localhost:4000/api/v1/users/add/", newLogin)
+        .post("https://af-group-project.herokuapp.com/v1/users/add/", newLogin)
         .then((res) => {
           console.log(res);
           console.log("Staff Login Added!!");

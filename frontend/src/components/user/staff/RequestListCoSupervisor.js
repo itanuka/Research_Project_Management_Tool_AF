@@ -11,9 +11,9 @@ function RequestListCoSupervisor() {
 
     // IMPORTANT --> change the url (given url is strictly for demonstration purposes)
     async function getRequests() {
-        await axios.get("http://localhost:4000/api/v1/requests/getRequestByStaffId/6291df9650646990e2ccbdc4")
+        await axios.get("https://af-group-project.herokuapp.com/v1/requests/getRequestByStaffId/6291df9650646990e2ccbdc4")
         .then(res => res.data.map(info=>{
-            axios.get(`http://localhost:4000/api/v1/groups/get/${info.group}`)
+            axios.get(`https://af-group-project.herokuapp.com/v1/groups/get/${info.group}`)
             .then(res=>{
                 groupName = res.data.groupName
                 co_supervisor = res.data.co_supervisor

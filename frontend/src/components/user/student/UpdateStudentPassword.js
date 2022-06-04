@@ -32,7 +32,7 @@ export default function UpdateStudentPassword() {
             password
         };
 
-        await axios.patch(`http://localhost:4000/api/v1/users/changePassword/${user.userID}`, requestBody);
+        await axios.patch(`https://af-group-project.herokuapp.com/v1/users/changePassword/${user.userID}`, requestBody);
         localStorage.clear();
 
         Swal.fire({

@@ -33,7 +33,7 @@ function AddAdmin() {
       };
 
       axios
-        .post("http://localhost:4000/api/v1/users/add/", newLogin)
+        .post("https://af-group-project.herokuapp.com/v1/users/add/", newLogin)
         .then((res) => {
           console.log(res);
           console.log("Success!!");

@@ -50,7 +50,7 @@ function RegisterStudent() {
       };
 
       axios
-        .post("http://localhost:4000/api/v1/students/registerStudent", newStudent)
+        .post("https://af-group-project.herokuapp.com/v1/students/registerStudent", newStudent)
         .then((res) => {
           console.log(res);
           console.log("Student Added!!");
@@ -63,7 +63,7 @@ function RegisterStudent() {
         });
 
       axios
-        .post("http://localhost:4000/api/v1/users/add/", newLogin)
+        .post("https://af-group-project.herokuapp.com/v1/users/add/", newLogin)
         .then((res) => {
           console.log(res);
           console.log("Student Login Added!!");

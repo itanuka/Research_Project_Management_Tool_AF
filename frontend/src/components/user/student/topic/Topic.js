@@ -25,7 +25,7 @@ function Topic(props) {
     }, []);
     useEffect(() => {
         axios
-            .get("http://localhost:4000/api/v1/topics/getTopicUsingGroupID/" + user.groupID)
+            .get("https://af-group-project.herokuapp.com/v1/topics/getTopicUsingGroupID/" + user.groupID)
             .then((res) => {
                 setTopic(res.data);
             })

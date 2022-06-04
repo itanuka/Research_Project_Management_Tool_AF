@@ -34,7 +34,7 @@ function ChatForum() {
   const name = "" //use the userID to find the name
 
   async function postMessage() {
-    await axios.post(`http://localhost:4000/api/v1/groups/newChatMessage/${groupId}`, {
+    await axios.post(`https://af-group-project.herokuapp.com/v1/groups/newChatMessage/${groupId}`, {
         name,
         message: messageContent
     })

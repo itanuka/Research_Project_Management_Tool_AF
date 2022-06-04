@@ -19,13 +19,13 @@ function ViewStudents() {
 
   const deleteStudent = async (id, idNumber) => {
     await axios
-      .delete("http://localhost:4000/api/v1/students/delete/" + id)
+      .delete("https://af-group-project.herokuapp.com/v1/students/delete/" + id)
       .then((res) => {
         console.log(res);
       });
 
     await axios
-      .delete("http://localhost:4000/api/v1/users/deleteByUserID/" + idNumber)
+      .delete("https://af-group-project.herokuapp.com/v1/users/deleteByUserID/" + idNumber)
       .then((res) => {
         console.log(res);
       });
@@ -34,7 +34,7 @@ function ViewStudents() {
 
   const loadStudent = () => {
     axios
-      .get("http://localhost:4000/api/v1/students/")
+      .get("https://af-group-project.herokuapp.com/v1/students/")
       .then((res) => {
         setStudents(res.data);
         console.log(res);
@@ -50,7 +50,7 @@ function ViewStudents() {
   useEffect(() => {
     function getStudents() {
       axios
-        .get("http://localhost:4000/api/v1/students/")
+        .get("https://af-group-project.herokuapp.com/v1/students/")
         .then((res) => {
           setStudents(res.data);
           console.log(res);
