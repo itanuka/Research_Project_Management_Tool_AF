@@ -43,10 +43,18 @@ function CreateGroup() {
 
 
 
-    Swal.fire("Registration Succesfull!", "Click ok to Continue", "success");
+    // Swal.fire("Registration Succesfull!", "Click ok to Continue", "success");
+    Swal.fire({
+      title: 'Group Create Successfully',
+      icon: "success",
+      showConfirmButton: false,
+      timer: 1500
+    }).then((value) =>{
+      Swal.fire(( window.location = "/"));
+    });
 
     localStorage.clear();
-    window.location = "/"
+   
 
     setGroupName("");
     setFirstMemberID("");

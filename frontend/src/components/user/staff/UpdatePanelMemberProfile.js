@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../layout/Loader";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import UserSideBar from "../../layout/UserSideBar";
+import PanelMemberSideBar from "../../layout/PanelMemberSideBar";
 import Swal from "sweetalert2";
 
 
@@ -135,7 +135,7 @@ function UpdatePanelMemberProfile() {
 
             <div className="row">
                 <div className="col-2">
-                    <UserSideBar />
+                    <PanelMemberSideBar />
                 </div>
                 <div className="col-10">
                     <div className="row" style={{ height: "10px" }}></div>

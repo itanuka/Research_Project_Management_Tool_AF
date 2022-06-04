@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import jwtDecode from 'jwt-decode'
+import jwtDecode from 'jwt-decode';
+import { Link, useNavigate } from "react-router-dom";
 
 import PanelMemberSideBar from "../../layout/PanelMemberSideBar";
 
@@ -8,12 +9,18 @@ function PanelMemberHome() {
 
 
   const [user, setUser] = useState({});
+  const [navigateLink, setNavigateLink] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
 
     try {
       const jwt = localStorage.getItem("token");
       setUser(jwtDecode(jwt));
+      let userObectID = jwtDecode(jwt).userObectID;
+      let navigateLink = "/staff/view/panelMember/" + userObectID;
+      setNavigateLink(navigateLink);
     } catch (error) {
 
     }
@@ -42,16 +49,16 @@ function PanelMemberHome() {
 
               <div class="col mb-4">
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                  <div class="card-header text-center">Topic Submition</div>
+                  <div class="card-header text-center">My Profile</div>
                   <div class="card-body">
-                    <a href="" className="custom-size"><i class="fa-solid fa-file-circle-plus"></i></a>
+                    <a href={navigateLink} className="custom-size"><i class="fa-solid fa-file-circle-plus"></i></a>
                   </div>
                 </div>
               </div>
 
               <div class="col mb-4">
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                  <div class="card-header text-center">Dummy</div>
+                  <div class="card-header text-center">Change Password</div>
                   <div class="card-body">
                     <a href="" className="custom-size"><i class="fa-solid fa-user-gear"></i></a>
                   </div>
