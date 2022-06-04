@@ -42,7 +42,7 @@ function ViewStudentProfile() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:4000/api/v1/students/get/" + paramID.id)
+            .get("https://af-group-project.herokuapp.com/v1/students/get/" + paramID.id)
             .then((res) => {
                 // console.log(res.data);
                 setStudentName(res.data.name);

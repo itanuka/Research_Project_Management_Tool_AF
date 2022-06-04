@@ -60,7 +60,7 @@ function UpdateStaff() {
     const userID = idNumber;
 
     axios
-      .put("http://localhost:4000/api/v1/staff/update/" + paramID.id, newStaff)
+      .put("https://af-group-project.herokuapp.com/v1/staff/update/" + paramID.id, newStaff)
       .then((res) => {
         console.log(res);
         console.log("Update Successfuly!!");
@@ -93,7 +93,7 @@ function UpdateStaff() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/staff/get/" + paramID.id)
+      .get("https://af-group-project.herokuapp.com/v1/staff/get/" + paramID.id)
       .then((res) => {
         console.log(res.data);
         setName(res.data.name);

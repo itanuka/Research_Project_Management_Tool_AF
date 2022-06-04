@@ -33,7 +33,7 @@ function CreateGroup() {
 
 
     axios
-      .post("http://localhost:4000/api/v1/groups/createGroup", newGroup)
+      .post("https://af-group-project.herokuapp.com/v1/groups/createGroup", newGroup)
       .then((res) => {
         setLoading(false);
       })

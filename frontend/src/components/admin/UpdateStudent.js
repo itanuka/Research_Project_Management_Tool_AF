@@ -47,7 +47,7 @@ function UpdateStudent() {
 
     axios
       .put(
-        "http://localhost:4000/api/v1/students/update/" + paramID.id,
+        "https://af-group-project.herokuapp.com/v1/students/update/" + paramID.id,
         newStudent
       )
       .then((res) => {
@@ -80,7 +80,7 @@ function UpdateStudent() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/students/get/" + paramID.id)
+      .get("https://af-group-project.herokuapp.com/v1/students/get/" + paramID.id)
       .then((res) => {
         console.log(res.data);
         setStudentName(res.data.name);

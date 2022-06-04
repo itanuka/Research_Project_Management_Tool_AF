@@ -38,7 +38,7 @@ function UpdateGroup() {
 
         axios
             .put(
-                "http://localhost:4000/api/v1/groups/update/" + paramID.id,
+                "https://af-group-project.herokuapp.com/v1/groups/update/" + paramID.id,
                 newGroup
             )
             .then((res) => {
@@ -62,7 +62,7 @@ function UpdateGroup() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:4000/api/v1/groups/get/" + paramID.id)
+            .get("https://af-group-project.herokuapp.com/v1/groups/get/" + paramID.id)
             .then((res) => {
                 setGroupName(res.data.groupName);
                 setFirstMemberID(res.data.firstMember.idNumber);

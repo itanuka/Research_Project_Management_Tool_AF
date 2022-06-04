@@ -77,7 +77,7 @@ function UpdatePanelMemberProfile() {
         const userID = idNumber;
 
         axios
-            .put("http://localhost:4000/api/v1/staff/update/" + paramID.id, newStaff)
+            .put("https://af-group-project.herokuapp.com/v1/staff/update/" + paramID.id, newStaff)
             .then((res) => {
                 console.log(res);
                 console.log("Update Successfuly!!");
@@ -112,7 +112,7 @@ function UpdatePanelMemberProfile() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:4000/api/v1/staff/get/" + paramID.id)
+            .get("https://af-group-project.herokuapp.com/v1/staff/get/" + paramID.id)
             .then((res) => {
                 setName(res.data.name);
                 setID(res.data.idNumber);
@@ -163,8 +163,8 @@ function UpdatePanelMemberProfile() {
                                                     <label for="inputIdNumber">Staff ID</label>
                                                     <input type="text"
                                                         class="form-control"
-                                                        // pattern="[E|I|B][N|T|M][0-9]{8}"
-                                                        // title="Enter Valid Staff ID"
+                                                        pattern="[E|I|B][N|T|M][0-9]{8}"
+                                                        title="Enter Valid Staff ID"
                                                         value={idNumber}
                                                     />
                                                 </div>

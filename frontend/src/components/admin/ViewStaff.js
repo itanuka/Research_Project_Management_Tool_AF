@@ -22,13 +22,13 @@ function ViewStaff() {
 
   const deletestaff = async (id, idNumber) => {
     await axios
-      .delete("http://localhost:4000/api/v1/staff/delete/" + id)
+      .delete("https://af-group-project.herokuapp.com/v1/staff/delete/" + id)
       .then((res) => {
         console.log(res);
       });
 
     await axios
-      .delete("http://localhost:4000/api/v1/users/deleteByUserID/" + idNumber)
+      .delete("https://af-group-project.herokuapp.com/v1/users/deleteByUserID/" + idNumber)
       .then((res) => {
         console.log(res);
       });
@@ -37,7 +37,7 @@ function ViewStaff() {
 
   const loadStaffData = () => {
     axios
-      .get("http://localhost:4000/api/v1/staff/")
+      .get("https://af-group-project.herokuapp.com/v1/staff/")
       .then((res) => {
         setStaff(res.data);
         console.log(res);
@@ -52,7 +52,7 @@ function ViewStaff() {
   useEffect(() => {
     function getStaff() {
       axios
-        .get("http://localhost:4000/api/v1/staff/")
+        .get("https://af-group-project.herokuapp.com/v1/staff/")
         .then((res) => {
           setStaff(res.data);
           console.log(res);

@@ -33,7 +33,7 @@ function AddAdmin() {
       };
 
       axios
-        .post("http://localhost:4000/api/v1/users/add/", newLogin)
+        .post("https://af-group-project.herokuapp.com/v1/users/add/", newLogin)
         .then((res) => {
           console.log(res);
           console.log("Success!!");
@@ -72,7 +72,7 @@ function AddAdmin() {
           <AdminSideBar />
         </div>
         <div className="col-10">
-        <div className="row" style={{ height: "50px" }}></div>
+          <div className="row" style={{ height: "50px" }}></div>
 
           <div class="container body">
             <div class="row mt-5 mb-5">
@@ -100,6 +100,8 @@ function AddAdmin() {
                         <label for="password_field">Password</label>
                         <input type="password"
                           class="form-control"
+                          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                          title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                           value={password}
                           required
                           onChange={(e) => {

@@ -24,7 +24,7 @@ function SubmissionList(props) {
     }, []);
     useEffect(() => {
         axios
-            .get("http://localhost:4000/api/v1/submissions/getSubmissionsUsingGroupID/" + user.groupID)
+            .get("https://af-group-project.herokuapp.com/v1/submissions/getSubmissionsUsingGroupID/" + user.groupID)
             .then((res) => {
                 setSubmissionList(res.data);
             })

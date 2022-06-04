@@ -13,7 +13,7 @@ function SupervisorList() {
 
     
     async function getSupervisors() {
-        await axios.get("http://localhost:4000/api/v1/staff/")
+        await axios.get("https://af-group-project.herokuapp.com/v1/staff/")
         .then((res)=> {
             setStaff(res.data)
         })

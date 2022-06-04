@@ -50,7 +50,7 @@ function RegisterStudent() {
       };
 
       axios
-        .post("http://localhost:4000/api/v1/students/registerStudent", newStudent)
+        .post("https://af-group-project.herokuapp.com/v1/students/registerStudent", newStudent)
         .then((res) => {
           console.log(res);
           console.log("Student Added!!");
@@ -63,7 +63,7 @@ function RegisterStudent() {
         });
 
       axios
-        .post("http://localhost:4000/api/v1/users/add/", newLogin)
+        .post("https://af-group-project.herokuapp.com/v1/users/add/", newLogin)
         .then((res) => {
           console.log(res);
           console.log("Student Login Added!!");
@@ -126,8 +126,8 @@ function RegisterStudent() {
                       <label for="inputIdNumber">Student ID</label>
                       <input type="text"
                         class="form-control"
-                        // pattern="[E|I|B][N|T|M][0-9]{8}"
-                        // title="Enter Valid Student ID"
+                        pattern="[E|I|B][N|T|M][0-9]{8}"
+                        title="Enter Valid Student ID"
                         value={idNumber}
                         required
                         onChange={(e) => {
@@ -186,8 +186,8 @@ function RegisterStudent() {
                       <label for="inputEmail">Email</label>
                       <input type="email"
                         class="form-control"
-                        // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                        // title="Enter Valid E-mail address"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        title="Enter Valid E-mail address"
                         placeholder="example@gamil.com"
                         value={email}
                         required
@@ -205,8 +205,8 @@ function RegisterStudent() {
                         class="form-control"
                         value={password}
                         required
-                        // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                        // title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                         onChange={(e) => {
                           setPassword(e.target.value);
                         }} />

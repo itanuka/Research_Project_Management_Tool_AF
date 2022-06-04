@@ -21,7 +21,7 @@ const TemplateList = () => {
     useEffect(() => {
         const getFilesList = async () => {
             try {
-                const { data } = await axios.get('http://localhost:4000/api/v1/templates/');
+                const { data } = await axios.get('https://af-group-project.herokuapp.com/v1/templates/');
                 setErrorMsg('');
                 setFilesList(data);
             } catch (error) {

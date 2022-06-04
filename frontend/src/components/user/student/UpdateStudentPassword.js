@@ -32,7 +32,7 @@ export default function UpdateStudentPassword() {
             password
         };
 
-        await axios.patch(`http://localhost:4000/api/v1/users/changePassword/${user.userID}`, requestBody);
+        await axios.patch(`https://af-group-project.herokuapp.com/v1/users/changePassword/${user.userID}`, requestBody);
         localStorage.clear();
 
         Swal.fire({
@@ -68,8 +68,8 @@ export default function UpdateStudentPassword() {
                                                 <label for="password">New Password</label>
                                                 <input type="password"
                                                     class="form-control"
-                                                    // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                                                    // title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                                     id="password"
                                                     // value={userID}
                                                     name="password"

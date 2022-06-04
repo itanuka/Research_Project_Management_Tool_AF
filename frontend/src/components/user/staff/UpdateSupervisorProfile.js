@@ -77,7 +77,7 @@ function UpdateSupervisorProfile() {
         const userID = idNumber;
 
         axios
-            .put("http://localhost:4000/api/v1/staff/update/" + paramID.id, newStaff)
+            .put("https://af-group-project.herokuapp.com/v1/staff/update/" + paramID.id, newStaff)
             .then((res) => {
                 console.log(res);
                 console.log("Update Successfuly!!");
@@ -114,7 +114,7 @@ function UpdateSupervisorProfile() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:4000/api/v1/staff/get/" + paramID.id)
+            .get("https://af-group-project.herokuapp.com/v1/staff/get/" + paramID.id)
             .then((res) => {
                 setName(res.data.name);
                 setID(res.data.idNumber);
@@ -165,8 +165,8 @@ function UpdateSupervisorProfile() {
                                                     <label for="inputIdNumber">Staff ID</label>
                                                     <input type="text"
                                                         class="form-control"
-                                                        // pattern="[E|I|B][N|T|M][0-9]{8}"
-                                                        // title="Enter Valid Staff ID"
+                                                        pattern="[E|I|B][N|T|M][0-9]{8}"
+                                                        title="Enter Valid Staff ID"
                                                         value={idNumber}
                                                     />
                                                 </div>
@@ -237,9 +237,9 @@ function UpdateSupervisorProfile() {
                                                     <label for="inputEmail">Email</label>
                                                     <input type="email"
                                                         class="form-control"
-                                                        // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+                                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
                                                         placeholder="example@gamil.com"
-                                                        // title="Enter Valid E-mail address"
+                                                        title="Enter Valid E-mail address"
                                                         value={email}
                                                         onChange={handleChangeEmail}
 

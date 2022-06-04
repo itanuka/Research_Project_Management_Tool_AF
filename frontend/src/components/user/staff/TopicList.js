@@ -18,7 +18,7 @@ const TopicList = () => {
   useEffect(() => {
     const getFilesList = async () => {
       try {
-        const { data } = await axios.get('http://localhost:4000/api/v1/topics/');
+        const { data } = await axios.get('https://af-group-project.herokuapp.com/v1/topics/');
         setErrorMsg('');
         setFilesList(data);
       } catch (error) {

@@ -22,7 +22,7 @@ function Login() {
     };
 
     const response = await axios.post(
-      "http://localhost:4000/api/v1/users/login",
+      "https://af-group-project.herokuapp.com/v1/users/login",
       loginData
     );
 

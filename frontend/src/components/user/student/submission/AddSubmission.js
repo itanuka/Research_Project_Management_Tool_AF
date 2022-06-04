@@ -29,7 +29,7 @@ function AddSubmission() {
     useEffect(() => {
 
         axios
-            .get("http://localhost:4000/api/v1/templates/" + templateId)
+            .get("https://af-group-project.herokuapp.com/v1/templates/" + templateId)
             .then((res) => {
                 setTemplateName(res.data.templateName);
                 setDeadline(res.data.deadline);

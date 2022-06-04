@@ -29,13 +29,13 @@ function ViewGroups() {
 
     const deleteGroup = async (id, idNumber) => {
         await axios
-            .delete("http://localhost:4000/api/v1/groups/delete/" + id)
+            .delete("https://af-group-project.herokuapp.com/v1/groups/delete/" + id)
             .then((res) => {
                 console.log(res);
             });
 
         await axios
-            .delete("http://localhost:4000/api/v1/users/deleteByUserID/" + idNumber)
+            .delete("https://af-group-project.herokuapp.com/v1/users/deleteByUserID/" + idNumber)
             .then((res) => {
                 console.log(res);
             });
@@ -44,7 +44,7 @@ function ViewGroups() {
 
     const loadGroup = () => {
         axios
-            .get("http://localhost:4000/api/v1/groups/")
+            .get("https://af-group-project.herokuapp.com/v1/groups/")
             .then((res) => {
                 setGroups(res.data);
                 if (res.data.length == 0) {
@@ -58,7 +58,7 @@ function ViewGroups() {
 
     useEffect(() => {
         async function getGroups() {
-            const { data } = await axios.get("http://localhost:4000/api/v1/groups");
+            const { data } = await axios.get("https://af-group-project.herokuapp.com/v1/groups");
 
             setGroups(data);
             // axios

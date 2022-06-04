@@ -31,7 +31,7 @@ function Header() {
 
         if (user.role == "student") {
             axios
-                .get("http://localhost:4000/api/v1/students/getStudentUsingUserID/" + user.userID)
+                .get("https://af-group-project.herokuapp.com/v1/students/getStudentUsingUserID/" + user.userID)
                 .then((res) => {
 
                     setId(res.data._id.toString());
@@ -45,7 +45,7 @@ function Header() {
 
         if (user.role == "supervisor") {
             axios
-                .get("http://localhost:4000/api/v1/staff/getStaffUsingUserID/" + user.userID)
+                .get("https://af-group-project.herokuapp.com/v1/staff/getStaffUsingUserID/" + user.userID)
                 .then((res) => {
 
                     setId(res.data._id.toString());
@@ -59,7 +59,7 @@ function Header() {
 
         if (user.role == "panel_member") {
             axios
-                .get("http://localhost:4000/api/v1/staff/getStaffUsingUserID/" + user.userID)
+                .get("https://af-group-project.herokuapp.com/v1/staff/getStaffUsingUserID/" + user.userID)
                 .then((res) => {
 
                     setId(res.data._id.toString());
