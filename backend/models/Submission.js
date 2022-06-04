@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const submissionSchema = mongoose.Schema(
     {
-        templateId: {
-            type: String,
+        template: {
+            type: mongoose.Schema.Types.ObjectId,
             required: true,
-            trim: true
+            ref: 'Template',
         },
         templateName: {
             type: String,
@@ -27,10 +27,10 @@ const submissionSchema = mongoose.Schema(
             required: true,
             trim: true
         },
-        groupID: {
-            type: String,
+        group: {
+            type: mongoose.Schema.Types.ObjectId,
             required: true,
-            trim: true
+            ref: 'Group',
         },
         file_path: {
             type: String,

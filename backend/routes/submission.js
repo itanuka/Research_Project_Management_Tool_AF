@@ -3,6 +3,9 @@ const express = require('express');
 const multer = require('multer');
 const Submission = require('../models/Submission');
 const Router = express.Router();
+const Group = require('../models/Group');
+const Template = require('../models/Template');
+
 
 const {
     getAllSubmissions,
@@ -40,13 +43,16 @@ Router.post(
         try {
             const { templateId, templateName, deadline, groupName, submittedBy, groupID } = req.body;
             const { path, mimetype } = req.file;
+
+            const template = await Template.findOne({ _id: templateId });
+            const group = await Group.findOne({ _id: groupID });
             const file = new Submission({
-                templateId,
+                template,
                 templateName,
                 deadline,
                 groupName,
                 submittedBy,
-                groupID,
+                group,
                 file_path: path,
                 file_mimetype: mimetype
             });
