@@ -51,7 +51,7 @@ function GroupHome() {
 
               <div class="col mb-4">
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                  <div class="card-header text-center">Download Templates</div>
+                  <div class="card-header text-center">Download Templates and Upload Answers</div>
                   <div class="card-body">
                     <a href="/student/group/templates" className="custom-size"><i class="fa-solid fa-user-group"></i></a>
                   </div>
@@ -62,9 +62,9 @@ function GroupHome() {
 
               <div class="col mb-4">
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
-                  <div class="card-header text-center">Upload Documents</div>
+                  <div class="card-header text-center">Our Submissions</div>
                   <div class="card-body">
-                    <a href="/student/group/topic" className="custom-size"><i class="fa-solid fa-file-circle-plus"></i></a>
+                    <a href="/student/group/submissions/" className="custom-size"><i class="fa-solid fa-file-circle-plus"></i></a>
                   </div>
                 </div>
               </div>

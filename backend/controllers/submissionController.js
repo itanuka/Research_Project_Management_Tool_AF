@@ -11,7 +11,7 @@ exports.getAllSubmissions = async (req, res) => {
         );
         res.send(sortedByCreationDate);
     } catch (error) {
-        res.status(400).send('Error while getting list of Topics. Try again later.');
+        res.status(400).send('Error while getting list of Submissions. Try again later.');
     }
 };
 
@@ -24,6 +24,26 @@ exports.getSubmission = catchAsyncErrors(async (req, res) => {
                 res.status(500).json(err)
             } else {
                 res.json(result)
+            }
+        })
+    } catch (error) {
+        console.error(error)
+    }
+});
+
+
+// get submissions using groupID
+exports.getSubmissionsUsingGroupID = catchAsyncErrors(async (req, res) => {
+    // let studentUserID = req.params.userID;
+    const groupID = req.params.groupID;
+    var groupIDConverted = mongoose.Types.ObjectId(groupID);
+
+    try {
+        Submission.find({ group: groupIDConverted }, (err, result) => {
+            if (err) {
+                res.status(500).json(err)
+            } else {
+                res.json(result);
             }
         })
     } catch (error) {

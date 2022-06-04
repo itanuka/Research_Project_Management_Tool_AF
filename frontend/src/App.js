@@ -34,6 +34,7 @@ import GroupHome from './components/user/student/GroupHome'
 
 import TemplateList from "./components/user/student/template/TemplateList";
 import AddSubmission from "./components/user/student/submission/AddSubmission";
+import SubmissionList from "./components/user/student/submission/SubmissionList";
 
 // This ViewTopic component is only for testing. Remove It. It should be in the Topic Component in Student
 import ViewTopic from "./components/user/student/topic/ViewTopic";
@@ -90,6 +91,7 @@ export function App() {
 
           <Route path="/student/group/templates" element={<TemplateList />}></Route>
           <Route path="/student/group/submissions/:templateId" element={<AddSubmission />}></Route>
+          <Route path="/student/group/submissions/" element={<SubmissionList />}></Route>
 
           {/* tharusha */}
           <Route path="/list" element={<TopicList />}></Route>

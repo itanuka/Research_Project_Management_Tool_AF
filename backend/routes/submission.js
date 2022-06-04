@@ -9,7 +9,8 @@ const Template = require('../models/Template');
 
 const {
     getAllSubmissions,
-    getSubmission
+    getSubmission,
+    getSubmissionsUsingGroupID
 } = require('../controllers/submissionController');
 
 const upload = multer({
@@ -95,5 +96,6 @@ Router.get('/download/submission/:id', async (req, res) => {
 
 Router.route("/").get(getAllSubmissions);
 Router.route("/:id").get(getSubmission);
+Router.route("/getSubmissionsUsingGroupID/:groupID").get(getSubmissionsUsingGroupID);
 
 module.exports = Router;
