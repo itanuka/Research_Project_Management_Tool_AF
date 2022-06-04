@@ -7,7 +7,9 @@ import '../../../style/styles.scss'
 import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import UserSideBar from '../../../layout/UserSideBar'
+import Swal from 'sweetalert2';
 // import { API_URL } from '../../utils/constants';
+
 
 function AddSubmission() {
     let navigate = useNavigate()
@@ -95,6 +97,12 @@ function AddSubmission() {
                         }
                     });
                     console.log('works fine to this point')
+                    Swal.fire({
+                        title: 'Submited Successfully',
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
                     navigate('/student')
                 } else {
                     setErrorMsg('Please select a file to add.');
