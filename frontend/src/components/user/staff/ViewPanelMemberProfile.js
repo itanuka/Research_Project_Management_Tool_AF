@@ -144,15 +144,7 @@ export default function ViewPanelMemberProfile() {
                                                         readOnly
                                                     />
                                                 </div>
-                                                <div class="col">
-                                                    <label for="inputPassword">Password</label>
-                                                    <input type="password"
-                                                        class="form-control"
-                                                        value={password}
-                                                        required
-                                                        readOnly
-                                                    />
-                                                </div>
+                                            
                                             </div>
 
 

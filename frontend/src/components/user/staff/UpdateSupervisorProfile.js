@@ -248,25 +248,7 @@ function UpdateSupervisorProfile() {
                                             </div>
 
                                             <div class="form-row mt-2">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputPassword">Password</label>
-                                                    <input type="password"
-                                                        class="form-control"
-                                                        // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                                                        // title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                                        value={password}
-                                                        onChange={handleChangePassword}
-                                                    />
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputConfirmPassword">Confirm Password</label>
-                                                    <input type="password"
-                                                        class="form-control"
-                                                        value={confirmPassword}
-                                                        onChange={handleChangeConfirmPassword}
-                                                    />
-                                                </div>
-
+                                          
 
                                             </div>
 

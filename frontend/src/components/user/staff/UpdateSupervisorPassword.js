@@ -4,6 +4,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect, useState } from "react";
 import SupervisorSideBar from '../../layout/SupervisorSideBar'
+import Swal from 'sweetalert2';
+
 
 export default function UpdateSupervisorPassword() {
 
@@ -31,7 +33,16 @@ export default function UpdateSupervisorPassword() {
 
         await axios.patch(`http://localhost:4000/api/v1/users/changePassword/${user.userID}`, requestBody);
         localStorage.clear();
-        window.location = "/"
+
+        Swal.fire({
+            title: 'Update Successfully',
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500
+          }).then((value) =>{
+            Swal.fire(( window.location = "/"));
+          });
+       
 
 
     }
