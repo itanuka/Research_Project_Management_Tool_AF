@@ -85,6 +85,8 @@ function Topic(props) {
                                 <h1>Your topic is rejected. Submit a new topic</h1>
                                 <ViewTopic topic={topic} />
 
+                                <br /><br />
+
                                 <h1>Submit a new topic</h1>
                                 <AddTopic user={user} />
                                 {/* {topic ? <ViewTopic topic={topic} /> : <AddTopic user={user} />} */}

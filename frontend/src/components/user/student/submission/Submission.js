@@ -68,7 +68,7 @@ function Submission(props) {
 
                                 <div class="card-body">
 
-                                    <h5 class="card-header text-center font-weight-bolder" >Card title</h5>
+                                    <h5 class="card-header text-center font-weight-bolder" >Submissions</h5>
 
 
 

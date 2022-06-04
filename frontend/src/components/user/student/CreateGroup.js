@@ -49,12 +49,12 @@ function CreateGroup() {
       icon: "success",
       showConfirmButton: false,
       timer: 1500
-    }).then((value) =>{
-      Swal.fire(( window.location = "/"));
+    }).then((value) => {
+      Swal.fire((window.location = "/"));
     });
 
     localStorage.clear();
-   
+
 
     setGroupName("");
     setFirstMemberID("");
@@ -106,6 +106,8 @@ function CreateGroup() {
                           <input type="text"
                             class="form-control"
                             value={firstMemberID}
+                            pattern="[E|I|B][N|T|M][0-9]{8}"
+                            title="Enter Valid Student ID"
                             required
                             onChange={(e) => {
                               setFirstMemberID(e.target.value);
@@ -118,6 +120,8 @@ function CreateGroup() {
                           <input type="text"
                             class="form-control"
                             value={secondMemberID}
+                            pattern="[E|I|B][N|T|M][0-9]{8}"
+                            title="Enter Valid Student ID"
                             required
                             onChange={(e) => {
                               setSecondMemberID(e.target.value);
@@ -133,6 +137,8 @@ function CreateGroup() {
                           <input type="text"
                             class="form-control"
                             value={thirdMemberID}
+                            pattern="[E|I|B][N|T|M][0-9]{8}"
+                            title="Enter Valid Student ID"
                             required
                             onChange={(e) => {
                               setThirdMemberID(e.target.value);
@@ -145,6 +151,8 @@ function CreateGroup() {
                           <input type="text"
                             class="form-control"
                             value={fourthMemberID}
+                            pattern="[E|I|B][N|T|M][0-9]{8}"
+                            title="Enter Valid Student ID"
                             required
                             onChange={(e) => {
                               setFourthMemberID(e.target.value);
