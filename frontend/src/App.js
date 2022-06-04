@@ -21,11 +21,12 @@ import RegisterStaff from "./components/user/staff/RegisterStaff";
 import SupervisorHome from "./components/user/staff/SupervisorHome";
 import ViewSupervisorProfile from "./components/user/staff/ViewSupervisorProfile";
 import UpdateSupervisorProfile from "./components/user/staff/UpdateSupervisorProfile";
-
+import UpdateSupervisorPassword from "./components/user/staff/UpdateSupervisorPassword";
 
 import PanelMemberHome from "./components/user/staff/PanelMemberHome";
 import ViewPanelMemberProfile from "./components/user/staff/ViewPanelMemberProfile";
 import UpdatePanelMemberProfile from "./components/user/staff/UpdatePanelMemberProfile";
+import UpdatePanelMemberPassword from "./components/user/staff/UpdatePanelMemberPassword";
 
 import ViewGroups from './components/admin/ViewGroups'
 import UpdateGroup from './components/admin/UpdateGroup'
@@ -75,10 +76,12 @@ export function App() {
           <Route path="/supervisor" element={<SupervisorHome />}></Route>
           <Route path="/staff/view/:id" element={<ViewSupervisorProfile />}></Route>
           <Route path="/staff/update/:id" element={<UpdateSupervisorProfile />}></Route>
+          <Route path="/staff/changePassword" element={<UpdateSupervisorPassword />}></Route>
 
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
           <Route path="/staff/view/panelMember/:id" element={<ViewPanelMemberProfile />}></Route>
           <Route path="/staff/update/panelMember/:id" element={<UpdatePanelMemberProfile />}></Route>
+          <Route path="/staff/panelMember/changePassword" element={<UpdatePanelMemberPassword />}></Route>
 
           <Route path="/admin/groups" element={<ViewGroups />}></Route>
           <Route path="admin/groups/update/:id" element={<UpdateGroup />}></Route>
