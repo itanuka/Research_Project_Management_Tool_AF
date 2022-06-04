@@ -4,6 +4,11 @@ const multer = require('multer');
 const Template = require('../models/Template');
 const Router = express.Router();
 
+const {
+  getAllTemplates,
+  getTemplate
+} = require('../controllers/templateController');
+
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, cb) {
@@ -78,5 +83,8 @@ Router.get('/download/template/:id', async (req, res) => {
     res.status(400).send('Error while downloading file. Try again later.');
   }
 });
+
+Router.route("/").get(getAllTemplates);
+Router.route("/:id").get(getTemplate);
 
 module.exports = Router;
