@@ -75,7 +75,7 @@ function StudentHome() {
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
                   <div class="card-header text-center">ChangePassword</div>
                   <div class="card-body">
-                    <a href="" className="custom-size"><i class="fa-solid fa-user-gear"></i></a>
+                    <a href="/student/changePassword" className="custom-size"><i class="fa-solid fa-user-gear"></i></a>
                   </div>
                 </div>
               </div>

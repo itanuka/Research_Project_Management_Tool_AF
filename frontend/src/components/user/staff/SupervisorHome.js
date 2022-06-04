@@ -64,7 +64,7 @@ function SupervisorHome() {
                 <div class="card text-white bg-dark mb-3" style={{ height: '240px', width: '400px' }}>
                   <div class="card-header text-center">Change Password</div>
                   <div class="card-body">
-                    <a href="" className="custom-size"><i class="fa-solid fa-user-gear"></i></a>
+                    <a href="/staff/changePassword" className="custom-size"><i class="fa-solid fa-user-gear"></i></a>
                   </div>
                 </div>
               </div>
@@ -77,7 +77,6 @@ function SupervisorHome() {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

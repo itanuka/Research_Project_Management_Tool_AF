@@ -1,7 +1,40 @@
 import React from 'react'
+import jwtDecode from 'jwt-decode'
+import axios from "axios";
+import { useState } from "react";
+import { useEffect, useState } from "react";
 import SupervisorSideBar from '../../layout/SupervisorSideBar'
 
 export default function UpdateSupervisorPassword() {
+
+    const [user, setUser] = useState({});
+    const [password, setPassword] = useState("");
+
+    useEffect(() => {
+
+        try {
+            const jwt = localStorage.getItem("token");
+            setUser(jwtDecode(jwt));
+        } catch (error) {
+
+        }
+    }, []);
+
+
+
+    const changePassword = async (e) => {
+
+        e.preventDefault();
+        const requestBody = {
+            password
+        };
+
+        await axios.patch(`http://localhost:4000/api/v1/users/changePassword/${user.userID}`, requestBody);
+        localStorage.clear();
+        window.location = "/"
+
+
+    }
     return (
         <div>
             <div className='row'>
@@ -18,19 +51,19 @@ export default function UpdateSupervisorPassword() {
                                     <div class="card-body">
                                         <h2 class="mb-4 text-center">Change Password</h2>
 
-                                        <form >
+                                        <form onSubmit={changePassword} >
                                             <div class="form-group ">
-                                                <label for="newPassword">New Password</label>
+                                                <label for="password">New Password</label>
                                                 <input type="password"
                                                     class="form-control"
                                                     // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                                                     // title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                                    id="newPassword"
+                                                    id="password"
                                                     // value={userID}
-                                                    name="newPassword"
-                                                    // onChange={(e) => {
-                                                    //     setUserID(e.target.value);
-                                                    // }}
+                                                    name="password"
+                                                    onChange={(e) => {
+                                                        setPassword(e.target.value);
+                                                    }}
                                                     required
                                                     aria-describedby="userHelp" />
 
