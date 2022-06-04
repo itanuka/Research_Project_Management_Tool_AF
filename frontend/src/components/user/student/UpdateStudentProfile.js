@@ -202,28 +202,7 @@ function UpdateStudentProfile() {
 
 
                                             <div class="form-row">
-                                                <div class="col">
-                                                    <label for="inputPassword">Password</label>
-                                                    <input type="password"
-                                                        class="form-control"
-                                                        // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                                        // title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                                        value={password}
-                                                        required
-                                                        onChange={(e) => {
-                                                            setPassword(e.target.value);
-                                                        }} />
-                                                </div>
-                                                <div class="col">
-                                                    <label for="inputConfirmPassword">Confirm Password</label>
-                                                    <input type="password"
-                                                        class="form-control"
-                                                        value={confirmPassword}
-                                                        required
-                                                        onChange={(e) => {
-                                                            setConfirmPassword(e.target.value);
-                                                        }} />
-                                                </div>
+                                             
                                             </div>
 
 

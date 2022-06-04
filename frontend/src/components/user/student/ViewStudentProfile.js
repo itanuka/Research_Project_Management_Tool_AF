@@ -118,14 +118,7 @@ function ViewStudentProfile() {
                                             </div>
 
                                             <div class="form-row">
-                                                <div class="col">
-                                                    <label for="inputPassword">Password</label>
-                                                    <input type="password"
-                                                        class="form-control"
-                                                        value={password}
-                                                        required
-                                                        readOnly />
-                                                </div>
+                                                
                                                 <div class="col">
                                                     <label for="inputLastName">Email</label>
                                                     <input type="email"
