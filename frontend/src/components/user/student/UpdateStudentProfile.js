@@ -132,8 +132,8 @@ function UpdateStudentProfile() {
                                                     <label for="inputIdNumber">Student ID</label>
                                                     <input type="text"
                                                         class="form-control"
-                                                        // pattern="[E|I|B][N|T|M][0-9]{8}"
-                                                        // title="Enter Valid Student ID"
+                                                        pattern="[E|I|B][N|T|M][0-9]{8}"
+                                                        title="Enter Valid Student ID"
                                                         value={idNumber}
                                                         required
                                                         onChange={(e) => {
@@ -189,8 +189,8 @@ function UpdateStudentProfile() {
                                                     <label for="inputEmail">Email</label>
                                                     <input type="email"
                                                         class="form-control"
-                                                        // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
-                                                        // title="Enter Valid E-mail address"
+                                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+                                                        title="Enter Valid E-mail address"
                                                         placeholder="example@gmail.com"
                                                         value={email}
                                                         required

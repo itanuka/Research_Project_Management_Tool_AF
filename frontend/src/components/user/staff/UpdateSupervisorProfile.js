@@ -165,8 +165,8 @@ function UpdateSupervisorProfile() {
                                                     <label for="inputIdNumber">Staff ID</label>
                                                     <input type="text"
                                                         class="form-control"
-                                                        // pattern="[E|I|B][N|T|M][0-9]{8}"
-                                                        // title="Enter Valid Staff ID"
+                                                        pattern="[E|I|B][N|T|M][0-9]{8}"
+                                                        title="Enter Valid Staff ID"
                                                         value={idNumber}
                                                     />
                                                 </div>
@@ -237,9 +237,9 @@ function UpdateSupervisorProfile() {
                                                     <label for="inputEmail">Email</label>
                                                     <input type="email"
                                                         class="form-control"
-                                                        // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+                                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
                                                         placeholder="example@gamil.com"
-                                                        // title="Enter Valid E-mail address"
+                                                        title="Enter Valid E-mail address"
                                                         value={email}
                                                         onChange={handleChangeEmail}
 

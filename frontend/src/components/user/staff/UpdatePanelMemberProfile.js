@@ -163,8 +163,8 @@ function UpdatePanelMemberProfile() {
                                                     <label for="inputIdNumber">Staff ID</label>
                                                     <input type="text"
                                                         class="form-control"
-                                                        // pattern="[E|I|B][N|T|M][0-9]{8}"
-                                                        // title="Enter Valid Staff ID"
+                                                        pattern="[E|I|B][N|T|M][0-9]{8}"
+                                                        title="Enter Valid Staff ID"
                                                         value={idNumber}
                                                     />
                                                 </div>
